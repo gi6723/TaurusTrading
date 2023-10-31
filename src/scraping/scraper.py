@@ -6,20 +6,23 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-load_dotenv()
+load_dotenv('/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/src/config/.env')
 
 class FinvizScraper:
     def __init__(self, driver_path, login_info):
         self.driver_path = driver_path
-        self.driver = webdriver.Chrome(self.driver_path)
+        self.driver = webdriver.Chrome(executable_path=self.driver_path)
         self.login_info = login_info  
         self.login()
 
     def login(self):
+        print("attempting to login")
         self.driver.get("https://finviz.com/login.ashx")
-        self.driver.find_element(By.ID, "email").send_keys(self.login_info['FINVIZ_USERNAME'])
-        self.driver.find_element(By.ID, "password").send_keys(self.login_info['FINVIZ_PASSWORD'])
+        self.driver.find_element(By.NAME, "email").send_keys(self.login_info['FINVIZ_USERNAME'])
+        self.driver.find_element(By.NAME, "password").send_keys(self.login_info['FINVIZ_PASSWORD'])
+        self.driver.find_element(By.NAME, "remember").click()
         self.driver.find_element(By.CSS_SELECTOR, "input[type='submit']").click()
+        print("logged in successfully")
 
     def select_preset(self, preset_name):
         self.driver.get("https://finviz.com/screener.ashx")

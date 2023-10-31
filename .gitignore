@@ -1,5 +1,2 @@
-FINVIZ_USERNAME.env
-DRIVER_PATH.env
-FINVIZ_PASSWORD.env
 TaurusTrading Key.pem
-TWELVE_DATA_API_KEY.env
+.env
