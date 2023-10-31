@@ -1,10 +1,14 @@
+import os
+from dotenv import load_dotenv
 from src.scraping.scraper import FinvizScraper
-from decouple import config
 
-driver_path = config('DRIVER_PATH')  # Assuming DRIVER_PATH is the key in your .env file
+# Load environment variables from .env file
+load_dotenv()
+
+driver_path = os.getenv('DRIVER_PATH')
 login_info = {
-    'FINVIZ_USERNAME': config('FINVIZ_USERNAME'),
-    'FINVIZ_PASSWORD': config('FINVIZ_PASSWORD')
+    'FINVIZ_USERNAME': os.getenv('FINVIZ_USERNAME'),
+    'FINVIZ_PASSWORD': os.getenv('FINVIZ_PASSWORD')
 }
 
 scraper = FinvizScraper(driver_path, login_info)

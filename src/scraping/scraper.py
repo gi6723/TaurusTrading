@@ -1,9 +1,12 @@
-from decouple import config
+import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+
+load_dotenv()
 
 class FinvizScraper:
     def __init__(self, driver_path, login_info):
@@ -41,10 +44,10 @@ class FinvizScraper:
         self.driver.quit()
 
 if __name__ == "__main__":
-    driver_path = config("DRIVER_PATH")
+    driver_path = os.getenv("DRIVER_PATH")
     login_info = {
-        'FINFIZ_USERNAME': config('FINFIZ_USERNAME'),
-        'FINFIZ_PASSWORD': config('FINFIZ_PASSWORD')
+        'FINFIZ_USERNAME': os.getenv('FINFIZ_USERNAME'),
+        'FINFIZ_PASSWORD': os.getenv('FINFIZ_PASSWORD')
     }
     scraper = FinvizScraper(driver_path, login_info)
     scraper.run()
