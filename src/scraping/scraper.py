@@ -1,17 +1,20 @@
 import os
 from dotenv import load_dotenv
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options  # Import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
+# Load environment variables from .env file
 load_dotenv('/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/src/config/.env')
 
 class FinvizScraper:
-    def __init__(self, driver_path, login_info):
-        self.driver_path = driver_path
-        self.driver = webdriver.Chrome(executable_path=self.driver_path)
+    def __init__(self, login_info):
+        chrome_options = webdriver.ChromeOptions()  # Create an instance of ChromeOptions
+        self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)  # Set the executable_path and options parameters
         self.login_info = login_info  
         self.login()
 
@@ -47,10 +50,10 @@ class FinvizScraper:
         self.driver.quit()
 
 if __name__ == "__main__":
-    driver_path = os.getenv("DRIVER_PATH")
     login_info = {
-        'FINFIZ_USERNAME': os.getenv('FINFIZ_USERNAME'),
-        'FINFIZ_PASSWORD': os.getenv('FINFIZ_PASSWORD')
+        'FINVIZ_USERNAME': os.getenv('FINVIZ_USERNAME'),
+        'FINVIZ_PASSWORD': os.getenv('FINVIZ_PASSWORD')
     }
-    scraper = FinvizScraper(driver_path, login_info)
+    scraper = FinvizScraper(login_info)
     scraper.run()
+
