@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 Overview
 TaurusTrading is a personal project developed as part of a portfolio for a Computer Science major. It's designed to automate a daily stock trading algorithm, leveraging various technologies to analyze and select stocks for day trading. This project is currently in the development phase and is not open for external contributions.
 
@@ -14,4 +12,4 @@ Selenium: Automates browser interactions for stock data extraction from Finviz.
 FinBERT: Analyzes financial news articles for sentiment analysis.
 Firebase: Manages database, authentication, and hosting.
 PWA Technologies: Service workers and modern web capabilities for a native-like experience on mobile devices.
->>>>>>> e76ca7f682368a0cfb5ab83efe828c2ed3114ce1
+
