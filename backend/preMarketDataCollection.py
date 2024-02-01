@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import Select
 from dotenv import load_dotenv
 import os
 load_dotenv()
-class DataCollection:
+class preMarketDataCollection:
     def __init__(self):
         options = Options()
         options.add_experimental_option("detach", True)
@@ -70,11 +70,10 @@ class DataCollection:
     
     def get_data(self):
         self.login()
-        self.navigate_to_screener()
-        
-        
+        self.navigate_to_screener()   
 
     def close(self):
         self.driver.quit()
 
-DataCollection().get_data()
+
+preMarketDataCollection().get_data()
