@@ -66,7 +66,7 @@ class preMarketDataCollection:
         preset_object.select_by_visible_text("s: PreJump")
 
     def grab_info_from_table(self):
-        print("Ill figure it out trust")
+        print("This is where I am going to grab the premarket data")
     
     def get_data(self):
         self.login()
