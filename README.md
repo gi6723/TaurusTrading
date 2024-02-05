@@ -1,5 +1,5 @@
 Overview
-TaurusTrading is a personal project developed as part of a portfolio for a Computer Science major. It's designed to automate a daily stock trading algorithm, leveraging various technologies to analyze and select stocks for day trading. This project is currently in the development phase and is not open for external contributions.
+TaurusTrading is a personal project developed as part of a portfolio for a my Computer Science major. It's designed to automate a daily stock trading algorithm, leveraging various technologies to analyze and select stocks for day trading. This project is currently in the development phase and is not open for external contributions.
 
 Features:
 Automated Stock Selection: Uses a set of predefined criteria on Finviz to filter stocks and selects the best candidates based on recent financial news analysis.

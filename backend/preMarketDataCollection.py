@@ -95,14 +95,15 @@ class preMarketDataCollection:
         df.rename(columns={'\n\nVolume': 'Volume'}, inplace=True)
         print(df)
 
-    def get_data(self):
-        self.login()
-        self.navigate_to_screener()  
-        self.grab_info_from_table() 
-
-
     def close(self):
         self.driver.quit()
 
+    def get_data(self):
+        self.login()
+        self.navigate_to_screener()  
+        df = self.grab_info_from_table() 
+        self.close()
+        return df
 
-preMarketDataCollection().get_data()
+
+#preMarketDataCollection().get_data()
