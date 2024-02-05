@@ -7,13 +7,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.support.ui import Select
+from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+import pandas as pd
 import os
 load_dotenv()
 class preMarketDataCollection:
     def __init__(self):
         options = Options()
         options.add_experimental_option("detach", True)
+        options.add_experimental_option("excludeSwitches", ["enable-logging"])
         self.service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=self.service, options=options)
         self.driver.get("https://finviz.com/login.ashx")
@@ -66,11 +69,37 @@ class preMarketDataCollection:
         preset_object.select_by_visible_text("s: PreJump")
 
     def grab_info_from_table(self):
-        print("This is where I am going to grab the premarket data")
-    
+        WebDriverWait(self.driver, 15).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead'))
+    )
+        # Get the headers
+        table_headers_html = self.driver.find_element(By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead').get_attribute('outerHTML')
+        headers_soup = BeautifulSoup(table_headers_html, 'lxml')
+        headers = [header.text for header in headers_soup.find_all('th')]
+
+        # Get the body of the table
+        WebDriverWait(self.driver, 15).until(
+            EC.presence_of_element_located((By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/tbody'))
+        )
+        table_html_snapshot = self.driver.find_element(By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/tbody').get_attribute('outerHTML')
+
+        body_soup = BeautifulSoup(table_html_snapshot, 'lxml')
+        rows = []
+        for row in body_soup.find_all('tr'):
+            cells = row.find_all('td')
+            if cells:
+                rows.append([cell.text.strip() for cell in cells])
+
+        df = pd.DataFrame(rows, columns=headers)
+        df.drop(columns='No.', inplace=True)
+        df.rename(columns={'\n\nVolume': 'Volume'}, inplace=True)
+        print(df)
+
     def get_data(self):
         self.login()
-        self.navigate_to_screener()   
+        self.navigate_to_screener()  
+        self.grab_info_from_table() 
+
 
     def close(self):
         self.driver.quit()
