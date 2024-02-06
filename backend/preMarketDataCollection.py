@@ -105,5 +105,4 @@ class preMarketDataCollection:
         self.close()
         return df
 
-
-#preMarketDataCollection().get_data()
+preMarketDataCollection().get_data()
