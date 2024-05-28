@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import pandas as pd
 import os
-#import chromedriver_autoinstaller
+#import cbrew install --cask google-chrome
 
 load_dotenv()
 class preMarketDataCollection:
