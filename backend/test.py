@@ -1,5 +1,9 @@
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
-driver = webdriver.Chrome()
-print(driver.capabilities['browserVersion'])
+options = Options()
+options.headless = True
+driver = webdriver.Firefox(options=options)
+driver.get("https://www.google.com")
+print(driver.title)
 driver.quit()

@@ -1,0 +1,222 @@
+[
+    {
+        "Ticker":"LUCY",
+        "Company":"Innovative Eyewear Inc",
+        "Sector":"Healthcare",
+        "Industry":"Medical Instruments & Supplies",
+        "Country":"USA",
+        "Market Cap":"16.59M",
+        "Price":"0.95",
+        "Change":"131.46%",
+        "Volume":"568,906,851"
+    },
+    {
+        "Ticker":"ONCO",
+        "Company":"Onconetix Inc",
+        "Sector":"Healthcare",
+        "Industry":"Biotechnology",
+        "Country":"USA",
+        "Market Cap":"6.58M",
+        "Price":"0.29",
+        "Change":"79.93%",
+        "Volume":"136,216,771"
+    },
+    {
+        "Ticker":"BNAI",
+        "Company":"Brand Engagement Network Inc",
+        "Sector":"Technology",
+        "Industry":"Software - Infrastructure",
+        "Country":"USA",
+        "Market Cap":"87.96M",
+        "Price":"2.64",
+        "Change":"107.87%",
+        "Volume":"107,966,368"
+    },
+    {
+        "Ticker":"ASTS",
+        "Company":"AST SpaceMobile Inc",
+        "Sector":"Technology",
+        "Industry":"Communication Equipment",
+        "Country":"USA",
+        "Market Cap":"1.26B",
+        "Price":"9.02",
+        "Change":"69.23%",
+        "Volume":"105,938,555"
+    },
+    {
+        "Ticker":"BNZI",
+        "Company":"Banzai International Inc",
+        "Sector":"Technology",
+        "Industry":"Software - Application",
+        "Country":"USA",
+        "Market Cap":"4.61M",
+        "Price":"0.21",
+        "Change":"21.58%",
+        "Volume":"73,583,003"
+    },
+    {
+        "Ticker":"MBIO",
+        "Company":"Mustang Bio Inc",
+        "Sector":"Healthcare",
+        "Industry":"Biotechnology",
+        "Country":"USA",
+        "Market Cap":"2.95M",
+        "Price":"0.24",
+        "Change":"24.99%",
+        "Volume":"70,294,309"
+    },
+    {
+        "Ticker":"CHWY",
+        "Company":"Chewy Inc",
+        "Sector":"Consumer Cyclical",
+        "Industry":"Internet Retail",
+        "Country":"USA",
+        "Market Cap":"9.37B",
+        "Price":"21.50",
+        "Change":"27.14%",
+        "Volume":"66,305,452"
+    },
+    {
+        "Ticker":"KTRA",
+        "Company":"Kintara Therapeutics Inc",
+        "Sector":"Healthcare",
+        "Industry":"Biotechnology",
+        "Country":"USA",
+        "Market Cap":"15.04M",
+        "Price":"0.27",
+        "Change":"44.76%",
+        "Volume":"64,672,799"
+    },
+    {
+        "Ticker":"BURU",
+        "Company":"Nuburu Inc",
+        "Sector":"Industrials",
+        "Industry":"Specialty Industrial Machinery",
+        "Country":"USA",
+        "Market Cap":"6.98M",
+        "Price":"0.18",
+        "Change":"25.00%",
+        "Volume":"54,792,802"
+    },
+    {
+        "Ticker":"SNOA",
+        "Company":"Sonoma Pharmaceuticals Inc.",
+        "Sector":"Healthcare",
+        "Industry":"Drug Manufacturers - Specialty & Generic",
+        "Country":"USA",
+        "Market Cap":"4.06M",
+        "Price":"0.26",
+        "Change":"28.21%",
+        "Volume":"53,659,005"
+    },
+    {
+        "Ticker":"NBY",
+        "Company":"Novabay Pharmaceuticals Inc",
+        "Sector":"Healthcare",
+        "Industry":"Biotechnology",
+        "Country":"USA",
+        "Market Cap":"6.17M",
+        "Price":"0.16",
+        "Change":"15.67%",
+        "Volume":"37,311,719"
+    },
+    {
+        "Ticker":"VERB",
+        "Company":"Verb Technology Company Inc",
+        "Sector":"Technology",
+        "Industry":"Software - Application",
+        "Country":"USA",
+        "Market Cap":"16.86M",
+        "Price":"0.16",
+        "Change":"15.06%",
+        "Volume":"33,753,505"
+    },
+    {
+        "Ticker":"BNED",
+        "Company":"Barnes & Noble Education Inc",
+        "Sector":"Consumer Cyclical",
+        "Industry":"Specialty Retail",
+        "Country":"USA",
+        "Market Cap":"38.81M",
+        "Price":"0.73",
+        "Change":"15.56%",
+        "Volume":"21,699,451"
+    },
+    {
+        "Ticker":"TANH",
+        "Company":"Tantech Holdings Ltd",
+        "Sector":"Consumer Defensive",
+        "Industry":"Household & Personal Products",
+        "Country":"China",
+        "Market Cap":"3.31M",
+        "Price":"0.81",
+        "Change":"24.04%",
+        "Volume":"16,123,125"
+    },
+    {
+        "Ticker":"SMMT",
+        "Company":"Summit Therapeutics Inc",
+        "Sector":"Healthcare",
+        "Industry":"Biotechnology",
+        "Country":"USA",
+        "Market Cap":"2.06B",
+        "Price":"2.93",
+        "Change":"22.80%",
+        "Volume":"7,136,311"
+    },
+    {
+        "Ticker":"IKNA",
+        "Company":"Ikena Oncology Inc",
+        "Sector":"Healthcare",
+        "Industry":"Biotechnology",
+        "Country":"USA",
+        "Market Cap":"80.59M",
+        "Price":"1.67",
+        "Change":"25.56%",
+        "Volume":"3,365,136"
+    },
+    {
+        "Ticker":"NNE",
+        "Company":"Nano Nuclear Energy Inc.",
+        "Sector":"Industrials",
+        "Industry":"Specialty Industrial Machinery",
+        "Country":"USA",
+        "Market Cap":"197.42M",
+        "Price":"6.91",
+        "Change":"25.87%",
+        "Volume":"2,545,112"
+    },
+    {
+        "Ticker":"LOT",
+        "Company":"Lotus Technology Inc. ADR",
+        "Sector":"Consumer Cyclical",
+        "Industry":"Auto Manufacturers",
+        "Country":"China",
+        "Market Cap":"9.26B",
+        "Price":"13.68",
+        "Change":"25.50%",
+        "Volume":"1,785,427"
+    },
+    {
+        "Ticker":"AGBA",
+        "Company":"AGBA Group Holding Limited",
+        "Sector":"Financial",
+        "Industry":"Capital Markets",
+        "Country":"Hong Kong",
+        "Market Cap":"246.85M",
+        "Price":"3.02",
+        "Change":"24.28%",
+        "Volume":"1,390,282"
+    },
+    {
+        "Ticker":"DARE",
+        "Company":"Dare Bioscience Inc",
+        "Sector":"Healthcare",
+        "Industry":"Biotechnology",
+        "Country":"USA",
+        "Market Cap":"47.51M",
+        "Price":"0.47",
+        "Change":"15.17%",
+        "Volume":"1,212,401"
+    }
+]
