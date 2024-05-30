@@ -1,11 +1,11 @@
-from selenium import webdriver 
+from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException, StaleElementReferenceException, TimeoutException
 from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -19,7 +19,7 @@ load_dotenv()
 class preMarketDataCollection:
     def __init__(self):
         options = FirefoxOptions()
-        #options.add_argument("--headless")
+        # options.add_argument("--headless")
         self.service = FirefoxService(GeckoDriverManager().install())
         self.driver = webdriver.Firefox(service=self.service, options=options)
         self.driver.get("https://finviz.com/login.ashx")
@@ -68,15 +68,15 @@ class preMarketDataCollection:
 
     def table_check(self):
         WebDriverWait(self.driver, 15).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead'))
+            EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/table/tbody/tr[4]/td/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/thead'))
         )
 
         WebDriverWait(self.driver, 15).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/tbody'))
+            EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/table/tbody/tr[4]/td/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/tbody'))
         )
 
     def table_parsing(self):
-        table_html_snapshot = self.driver.find_element(By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/tbody').get_attribute('outerHTML')
+        table_html_snapshot = self.driver.find_element(By.XPATH, '/html/body/div[2]/table/tbody/tr[4]/td/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/tbody').get_attribute('outerHTML')
 
         body_soup = BeautifulSoup(table_html_snapshot, 'lxml')
         rows = []
@@ -84,66 +84,84 @@ class preMarketDataCollection:
             cells = row.find_all('td')
             if cells:
                 rows.append([cell.text.strip() for cell in cells])
+        #print(f"Parsed {len(rows)} rows from table.")
         return rows
 
     def scrape_table_pages(self):
-        #click change tab to order tickers based on greatest to least change
+        # Click change tab to order tickers based on greatest to least change
         WebDriverWait(self.driver, 15).until(
             EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/table/tbody/tr[4]/td/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/thead/tr/th[10]'))
         ).click()
+        #print("Clicked on the 'Change' column to sort by change.")
 
         self.table_check()
         all_rows = self.table_parsing()
 
         page_select = WebDriverWait(self.driver, 15).until(
-            EC.element_to_be_clickable((By.ID, "pageSelect"))
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="pageSelect"]'))
         )
         select_object = Select(page_select)
         num_pages = len(select_object.options)
+        #print(f"Number of pages: {num_pages}")
+        if num_pages > 1:
+            for i in range(1, num_pages):
+                try:
+                    print(f"Navigating to page {i+1}/{num_pages}")
+                    select_object.select_by_index(i)
+                    #time.sleep(2) 
+                    WebDriverWait(self.driver, 10).until(
+                        EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/table/tbody/tr[4]/td/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/tbody'))
+                    )
+                    page_select = self.driver.find_element(By.XPATH, '//*[@id="pageSelect"]')
+                    select_object = Select(page_select)
+                    self.table_check()  
+                    rows = self.table_parsing()
+                    all_rows.extend(rows)
+                except StaleElementReferenceException as e:
+                    print(f"StaleElementReferenceException on page {i+1}: {e}")
+                    # Refresh elements
+                    self.driver.refresh()
+                    WebDriverWait(self.driver, 15).until(
+                        EC.presence_of_element_located((By.XPATH, '//*[@id="pageSelect"]'))
+                    )
+                    page_select = self.driver.find_element(By.XPATH, '//*[@id="pageSelect"]')
+                    select_object = Select(page_select)
+                    select_object.select_by_index(i)
+                    time.sleep(2)
+                    self.table_check()
+                    rows = self.table_parsing()
+                    all_rows.extend(rows)
+                except (NoSuchElementException, TimeoutException, ElementClickInterceptedException) as e:
+                    print(f"Exception on page {i+1}: {e}")
+                    break
 
-        for i in range(1, num_pages):
-            print(f"Navigating to page {i+1}/{num_pages}")
-            select_object.select_by_index(i)
-            time.sleep(2)  # Wait for 2 seconds to ensure the page has fully loaded
-            WebDriverWait(self.driver, 10).until(
-                EC.staleness_of(select_object.options[i])
-            )
-            self.table_check()  # Ensure the next page is fully loaded
-            rows = self.table_parsing()
-            all_rows.extend(rows)
-
-            # Refresh the Select object after each page change
-            page_select = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.ID, "pageSelect"))
-            )
-            select_object = Select(page_select)
-
-        #grabs table headers to be used as columns in df
-        table_headers_html = self.driver.find_element(By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead').get_attribute('outerHTML')
+        # Grabs table headers to be used as columns in df
+        table_headers_html = self.driver.find_element(By.XPATH, '/html/body/div[2]/table/tbody/tr[4]/td/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/thead').get_attribute('outerHTML')
         headers_soup = BeautifulSoup(table_headers_html, 'lxml')
         headers = [header.text.strip() for header in headers_soup.find_all('th')]
-        
-        #Contructs and returns df of table and all of it's pages
+
+        # Constructs and returns df of table and all of its pages
         df = pd.DataFrame(all_rows, columns=headers)
         df.drop(columns='P/E', inplace=True)
         df.rename(columns={'\n\nVolume': 'Volume'}, inplace=True)
         df.reset_index(drop=True, inplace=True)
         df['articleText'] = ""
-        df['sentScore'] = "" 
+        df['sentScore'] = ""
 
-        self.driver.quit()
         return df
-        
-    def save_to_json(self, df, filename="/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json"):
-        with open(filename, 'w') as f:
-            f.write(df.to_json(orient='records', indent = 4))
 
     def close(self):
         self.driver.quit()
 
+    def save_to_json(self, df, filename="/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json"):
+        with open(filename, 'w') as f:
+            f.write(df.to_json(orient='records', indent=4))
+        #print(f"Data saved to {filename}")
+
     def get_data(self):
+
         self.login()
-        self.navigate_to_screener()  
+        self.navigate_to_screener()
         df = self.scrape_table_pages()
         self.save_to_json(df)
         self.close()
@@ -152,6 +170,9 @@ class preMarketDataCollection:
 if __name__ == "__main__":
     data_collector = preMarketDataCollection()
     data = data_collector.get_data()
+    
+
 
 #Add Check for multiple table pages to make sure all ticker are scraped due to 20 ticker display limit
 #Click on Change tab above table to ensure that the ordering or tickers is from Greatest to least change
+#Add if statement to check if their is only 1 page before running for loop 
