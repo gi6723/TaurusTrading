@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 import pandas as pd
 import json
 import os
+import time
 
 load_dotenv()
 
@@ -54,23 +55,23 @@ class preMarketDataCollection:
                 self.driver.execute_script("arguments[0].click();", checkbox)
 
     def navigate_to_screener(self):
-        screener_tab = WebDriverWait(self.driver, 5).until(
+        screener_tab = WebDriverWait(self.driver, 15).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/table[2]/tbody/tr/td/table/tbody/tr/td[3]/a"))
         )
         screener_tab.click()
 
-        preset_element = WebDriverWait(self.driver, 5).until(
+        preset_element = WebDriverWait(self.driver, 15).until(
             EC.element_to_be_clickable((By.ID, "screenerPresetsSelect"))
         )
         preset_object = Select(preset_element)
         preset_object.select_by_visible_text("s: PreJump")
 
     def table_check(self):
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 15).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead'))
         )
 
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 15).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/tbody'))
         )
 
@@ -85,31 +86,37 @@ class preMarketDataCollection:
                 rows.append([cell.text.strip() for cell in cells])
         return rows
 
-    def grab_info_from_table_page(self):
+    def scrape_table_pages(self):
         #click change tab to order tickers based on greatest to least change
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 15).until(
             EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/table/tbody/tr[4]/td/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/thead/tr/th[10]'))
         ).click()
 
         self.table_check()
         all_rows = self.table_parsing()
 
-        while True:
-            try:
-                next_button = self.driver.find_element(By.XPATH, '//a[@class="screener-combo-button screener_button fv-button is-arrow"]')
-                if "is-disabled" in next_button.get_attribute("class"):
-                    break
-                else:
-                    next_button.click()
-                    WebDriverWait(self.driver, 5).until(
-                        EC.staleness_of(next_button)
-                    )
-                    self.table_check()  
-                    rows = self.table_parsing()
-                    all_rows.extend(rows)
-            except:
-                print("No more pages")
-                break
+        page_select = WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable((By.ID, "pageSelect"))
+        )
+        select_object = Select(page_select)
+        num_pages = len(select_object.options)
+
+        for i in range(1, num_pages):
+            print(f"Navigating to page {i+1}/{num_pages}")
+            select_object.select_by_index(i)
+            time.sleep(2)  # Wait for 2 seconds to ensure the page has fully loaded
+            WebDriverWait(self.driver, 10).until(
+                EC.staleness_of(select_object.options[i])
+            )
+            self.table_check()  # Ensure the next page is fully loaded
+            rows = self.table_parsing()
+            all_rows.extend(rows)
+
+            # Refresh the Select object after each page change
+            page_select = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.ID, "pageSelect"))
+            )
+            select_object = Select(page_select)
 
         #grabs table headers to be used as columns in df
         table_headers_html = self.driver.find_element(By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead').get_attribute('outerHTML')
@@ -124,19 +131,20 @@ class preMarketDataCollection:
         df['articleText'] = ""
         df['sentScore'] = "" 
 
-        return df
-
-    def close(self):
         self.driver.quit()
-
+        return df
+        
     def save_to_json(self, df, filename="/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json"):
         with open(filename, 'w') as f:
             f.write(df.to_json(orient='records', indent = 4))
 
+    def close(self):
+        self.driver.quit()
+
     def get_data(self):
         self.login()
         self.navigate_to_screener()  
-        df = self.grab_info_from_table_page()
+        df = self.scrape_table_pages()
         self.save_to_json(df)
         self.close()
         return df
