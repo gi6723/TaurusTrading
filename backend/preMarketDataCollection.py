@@ -18,7 +18,7 @@ load_dotenv()
 class preMarketDataCollection:
     def __init__(self):
         options = FirefoxOptions()
-        options.add_argument("--headless")
+        #options.add_argument("--headless")
         self.service = FirefoxService(GeckoDriverManager().install())
         self.driver = webdriver.Firefox(service=self.service, options=options)
         self.driver.get("https://finviz.com/login.ashx")
@@ -54,28 +54,27 @@ class preMarketDataCollection:
                 self.driver.execute_script("arguments[0].click();", checkbox)
 
     def navigate_to_screener(self):
-        screener_tab = WebDriverWait(self.driver, 10).until(
+        screener_tab = WebDriverWait(self.driver, 5).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/table[2]/tbody/tr/td/table/tbody/tr/td[3]/a"))
         )
         screener_tab.click()
 
-        preset_element = WebDriverWait(self.driver, 10).until(
+        preset_element = WebDriverWait(self.driver, 5).until(
             EC.element_to_be_clickable((By.ID, "screenerPresetsSelect"))
         )
         preset_object = Select(preset_element)
         preset_object.select_by_visible_text("s: PreJump")
 
-    def grab_info_from_table(self):
-        WebDriverWait(self.driver, 15).until(
+    def table_check(self):
+        WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead'))
         )
-        table_headers_html = self.driver.find_element(By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead').get_attribute('outerHTML')
-        headers_soup = BeautifulSoup(table_headers_html, 'lxml')
-        headers = [header.text.strip() for header in headers_soup.find_all('th')]
 
-        WebDriverWait(self.driver, 15).until(
+        WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/tbody'))
         )
+
+    def table_parsing(self):
         table_html_snapshot = self.driver.find_element(By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/tbody').get_attribute('outerHTML')
 
         body_soup = BeautifulSoup(table_html_snapshot, 'lxml')
@@ -84,12 +83,47 @@ class preMarketDataCollection:
             cells = row.find_all('td')
             if cells:
                 rows.append([cell.text.strip() for cell in cells])
+        return rows
 
-        df = pd.DataFrame(rows, columns=headers)
-        df.drop(columns='No.', inplace=True)
-        df.drop(columns='PE', inplace=True)
+    def grab_info_from_table_page(self):
+        #click change tab to order tickers based on greatest to least change
+        WebDriverWait(self.driver, 5).until(
+            EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/table/tbody/tr[4]/td/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/thead/tr/th[10]'))
+        ).click()
+
+        self.table_check()
+        all_rows = self.table_parsing()
+
+        while True:
+            try:
+                next_button = self.driver.find_element(By.XPATH, '//a[@class="screener-combo-button screener_button fv-button is-arrow"]')
+                if "is-disabled" in next_button.get_attribute("class"):
+                    break
+                else:
+                    next_button.click()
+                    WebDriverWait(self.driver, 5).until(
+                        EC.staleness_of(next_button)
+                    )
+                    self.table_check()  
+                    rows = self.table_parsing()
+                    all_rows.extend(rows)
+            except:
+                print("No more pages")
+                break
+
+        #grabs table headers to be used as columns in df
+        table_headers_html = self.driver.find_element(By.XPATH, '//*[@id="screener-table"]/td/table/tbody/tr/td/table/thead').get_attribute('outerHTML')
+        headers_soup = BeautifulSoup(table_headers_html, 'lxml')
+        headers = [header.text.strip() for header in headers_soup.find_all('th')]
+        
+        #Contructs and returns df of table and all of it's pages
+        df = pd.DataFrame(all_rows, columns=headers)
+        df.drop(columns='P/E', inplace=True)
         df.rename(columns={'\n\nVolume': 'Volume'}, inplace=True)
-        df.reset_index(drop=True, inplace=True)  
+        df.reset_index(drop=True, inplace=True)
+        df['articleText'] = ""
+        df['sentScore'] = "" 
+
         return df
 
     def close(self):
@@ -102,7 +136,7 @@ class preMarketDataCollection:
     def get_data(self):
         self.login()
         self.navigate_to_screener()  
-        df = self.grab_info_from_table()
+        df = self.grab_info_from_table_page()
         self.save_to_json(df)
         self.close()
         return df
@@ -111,3 +145,5 @@ if __name__ == "__main__":
     data_collector = preMarketDataCollection()
     data = data_collector.get_data()
 
+#Add Check for multiple table pages to make sure all ticker are scraped due to 20 ticker display limit
+#Click on Change tab above table to ensure that the ordering or tickers is from Greatest to least change
