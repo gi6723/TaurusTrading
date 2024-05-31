@@ -145,8 +145,6 @@ class preMarketDataCollection:
         df.drop(columns='P/E', inplace=True)
         df.rename(columns={'\n\nVolume': 'Volume'}, inplace=True)
         df.reset_index(drop=True, inplace=True)
-        df['articleText'] = ""
-        df['sentScore'] = ""
 
         return df
 
@@ -158,8 +156,7 @@ class preMarketDataCollection:
             f.write(df.to_json(orient='records', indent=4))
         #print(f"Data saved to {filename}")
 
-    def get_data(self):
-
+    def execute_premarket_scrape(self):
         self.login()
         self.navigate_to_screener()
         df = self.scrape_table_pages()
@@ -169,7 +166,7 @@ class preMarketDataCollection:
 
 if __name__ == "__main__":
     data_collector = preMarketDataCollection()
-    data = data_collector.get_data()
+    data = data_collector.execute_premarket_scrape()
     
 
 
