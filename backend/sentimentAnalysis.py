@@ -10,6 +10,10 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
+# Rest of your code
+
 
 load_dotenv()
 
