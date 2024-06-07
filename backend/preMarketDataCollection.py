@@ -15,7 +15,8 @@ import os
 import time
 
 load_dotenv()
-
+#add in timed scraping 15 minute intervals from 8am to 9am 
+#sent analysis we need to recoginize updated json and run sent on new tickers
 class preMarketDataCollection:
     def __init__(self):
         options = FirefoxOptions()
