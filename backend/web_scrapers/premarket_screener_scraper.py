@@ -17,7 +17,7 @@ import time
 load_dotenv()
 #add in timed scraping 15 minute intervals from 8am to 9am 
 #sent analysis we need to recoginize updated json and run sent on new tickers
-class preMarketDataCollection:
+class PreMarketDataCollection:
     def __init__(self):
         options = FirefoxOptions()
         # options.add_argument("--headless")
@@ -171,6 +171,3 @@ if __name__ == "__main__":
     
 
 
-#Add Check for multiple table pages to make sure all ticker are scraped due to 20 ticker display limit
-#Click on Change tab above table to ensure that the ordering or tickers is from Greatest to least change
-#Add if statement to check if their is only 1 page before running for loop 
