@@ -166,7 +166,7 @@ class PreMarketDataCollection:
         return df
 
 if __name__ == "__main__":
-    data_collector = preMarketDataCollection()
+    data_collector = PreMarketDataCollection()
     data = data_collector.execute_premarket_scrape()
     
 

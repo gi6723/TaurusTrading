@@ -1,122 +1,14 @@
 [
     {
         "No.":"1",
-        "Ticker":"LCFY",
-        "Company":"Locafy Limited",
-        "Sector":"Communication Services",
-        "Industry":"Internet Content & Information",
-        "Country":"Australia",
-        "Market Cap":"8.26M",
-        "Price":"6.45",
-        "Change":"178.01%",
-        "Volume":"44,788,125"
-    },
-    {
-        "No.":"2",
-        "Ticker":"NEXI",
-        "Company":"Neximmune Inc",
+        "Ticker":"NVDA",
+        "Company":"SILO Pharma Inc",
         "Sector":"Healthcare",
         "Industry":"Biotechnology",
         "Country":"USA",
-        "Market Cap":"5.60M",
-        "Price":"4.09",
-        "Change":"77.06%",
-        "Volume":"33,320,845"
-    },
-    {
-        "No.":"3",
-        "Ticker":"KZIA",
-        "Company":"Kazia Therapeutics Limited ADR",
-        "Sector":"Healthcare",
-        "Industry":"Biotechnology",
-        "Country":"Australia",
-        "Market Cap":"26.23M",
-        "Price":"1.11",
-        "Change":"66.12%",
-        "Volume":"213,481,961"
-    },
-    {
-        "No.":"4",
-        "Ticker":"CYN",
-        "Company":"Cyngn Inc",
-        "Sector":"Technology",
-        "Industry":"Software - Application",
-        "Country":"USA",
-        "Market Cap":"8.97M",
-        "Price":"6.32",
-        "Change":"59.47%",
-        "Volume":"15,668,833"
-    },
-    {
-        "No.":"5",
-        "Ticker":"MEI",
-        "Company":"Methode Electronics, Inc.",
-        "Sector":"Technology",
-        "Industry":"Electronic Components",
-        "Country":"USA",
-        "Market Cap":"485.20M",
-        "Price":"13.71",
-        "Change":"45.23%",
-        "Volume":"3,386,012"
-    },
-    {
-        "No.":"6",
-        "Ticker":"BFRG",
-        "Company":"Bullfrog AI Holdings Inc",
-        "Sector":"Healthcare",
-        "Industry":"Health Information Services",
-        "Country":"USA",
-        "Market Cap":"17.43M",
-        "Price":"2.22",
-        "Change":"37.89%",
-        "Volume":"3,386,452"
-    },
-    {
-        "No.":"7",
-        "Ticker":"SNOA",
-        "Company":"Sonoma Pharmaceuticals Inc.",
-        "Sector":"Healthcare",
-        "Industry":"Drug Manufacturers - Specialty & Generic",
-        "Country":"USA",
-        "Market Cap":"6.65M",
-        "Price":"0.35",
-        "Change":"36.09%",
-        "Volume":"27,370,837"
-    },
-    {
-        "No.":"8",
-        "Ticker":"IGMS",
-        "Company":"IGM Biosciences Inc",
-        "Sector":"Healthcare",
-        "Industry":"Biotechnology",
-        "Country":"USA",
-        "Market Cap":"540.92M",
-        "Price":"9.16",
-        "Change":"30.74%",
-        "Volume":"493,503"
-    },
-    {
-        "No.":"9",
-        "Ticker":"CYRX",
-        "Company":"CryoPort Inc",
-        "Sector":"Industrials",
-        "Industry":"Integrated Freight & Logistics",
-        "Country":"USA",
-        "Market Cap":"345.81M",
-        "Price":"7.02",
-        "Change":"26.49%",
-        "Volume":"1,805,098"
-    },
-    {
-        "No.":"10",
-        "Ticker":"XTKG",
-        "Company":"X3 Holdings Co Ltd.",
-        "Sector":"Technology",
-        "Industry":"Software - Application",
-        "Country":"Singapore",
-        "Market Cap":"147.89M",
-        "Price":"0.54",
-        "Change":"26.47%",
-        "Volume":"666,406"
+        "Market Cap":"12.80M",
+        "Price":"3.47",
+        "Change":"54.22%",
+        "Volume":"105,079,871"
     }
 ]
