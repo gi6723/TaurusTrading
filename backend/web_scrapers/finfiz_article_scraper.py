@@ -20,7 +20,8 @@ class FinFizArticleScraper:
         # options.add_argument("--headless")
         self.driver = webdriver.Firefox(options=options)
         self.driver.get("https://finviz.com/login.ashx")
-        
+        self.filtered_data = []
+
     def add_input_for_login(self, by: By, value: str, text: str):
         field = self.driver.find_element(by=by, value=value)
         field.send_keys(text)
@@ -57,7 +58,7 @@ class FinFizArticleScraper:
             data = json.load(file)
             for item in data:
                 tickers.append(item["Ticker"])
-            return tickers
+        return tickers
 
     def ticker_search(self, ticker):
         search_box = WebDriverWait(self.driver, 10).until(
@@ -66,51 +67,50 @@ class FinFizArticleScraper:
         search_box.clear()
         search_box.send_keys(ticker)
         search_box.send_keys(Keys.RETURN)  # Simulate pressing Enter key
-        print(f"Searching for ticker: {ticker}")
 
-    def fetch_article_data(self, ticker):
+    def article_data_filter(self, table_html):
+        self.filtered_data = []
+        soup = BeautifulSoup(table_html, 'html.parser')
+        rows = soup.find_all('tr', {'class': 'cursor-pointer has-label'})
+        TODAY = "Today"
+        MONTHS = ["Jan-", "Feb-", "Mar-", "Apr-", "May-", "Jun-", "Jul-", "Aug-", "Sep-", "Oct-", "Nov-", "Dec-"]
+        under_today = False
+
+        for row in rows:
+            if "sponsored" in row.get_text().lower():
+                continue
+
+            article_date = row.find('td', {'align': 'right'}).text.strip()
+
+            if TODAY in article_date:
+                time = article_date.replace(TODAY, '').strip()
+                title = row.find('a', {'class': 'tab-link-news'}).text.strip()
+                article_url = row.find('a', {'class': 'tab-link-news'}).get('href')
+                publisher = row.find('div', {'class': 'news-link-right'}).text.strip()
+                self.filtered_data.append((title, article_url, publisher, time))
+                under_today = True
+                
+            elif under_today and not any(month in article_date for month in MONTHS):
+                time = article_date
+                title = row.find('a', {'class': 'tab-link-news'}).text.strip()
+                article_url = row.find('a', {'class': 'tab-link-news'}).get('href')
+                publisher = row.find('div', {'class': 'news-link-right'}).text.strip()
+                self.filtered_data.append((title, article_url, publisher, time))
+            else:
+                under_today = False
+        return self.filtered_data
+        print(self.filtered_data)
+
+    def fetch_article_table(self, ticker):
         self.ticker_search(ticker)
+
         WebDriverWait(self.driver, 20).until(
             EC.presence_of_element_located((By.ID, 'news-table'))
         )
 
         table_html = self.driver.find_element(By.ID, 'news-table').get_attribute('outerHTML')
-        soup = BeautifulSoup(table_html, 'html.parser')
-        rows = soup.find_all('tr', {'class': 'cursor-pointer has-label'})
-
-        article_data = []
-        current_date = None
-        today_str = "Today"
-
-        for row in rows:
-            try:
-                # Skip advertisements
-                if "sponsored" in row.get_text().lower():
-                    continue
-
-                date_cell = row.find('td', {'align': 'right'})
-                if date_cell:
-                    date_published = date_cell.text.strip()
-                    if today_str in date_published:
-                        current_date = today_str
-                    elif current_date != today_str:
-                        break
-                    else:
-                        date_published = current_date
-
-                title = row.find('a', {'class': 'tab-link-news'}).text.strip()
-                article_url = row.find('a', {'class': 'tab-link-news'}).get('href')
-                publisher = row.find('div', {'class': 'news-link-right'}).text.strip()
-
-                print(f"Found article - Title: {title}, Date: {date_published}, URL: {article_url}, Publisher: {publisher}")
-                article_data.append((title, article_url, date_published, publisher))
-
-            except Exception as e:
-                print(f"Error processing article: {e}")
-
-        print(f"Found {len(article_data)} relevant articles for {ticker}")
-        return article_data
-
+        self.article_data_filter(table_html)
+        
     def fetch_article_text(self, url):
         self.driver.get(url)
         article_body = WebDriverWait(self.driver, 30).until(
@@ -126,13 +126,17 @@ class FinFizArticleScraper:
         tickers = self.grab_tickers()
         for ticker in tickers:
             print(f"Processing ticker: {ticker}")
-            article_data = self.fetch_article_data(ticker)
-            print(f"Article data for {ticker}: {article_data}")
+            self.fetch_article_table(ticker)
+            # Now you can use self.filtered_data here
+            for article in self.filtered_data:
+                title, article_url, publisher, time = article
+                print(f"Title: {title}, URL: {article_url}, Publisher: {publisher}, Time: {time}")
         self.close()
 
 if __name__ == "__main__":
     scraper = FinFizArticleScraper()
     scraper.process_ticker()
+
 
 
 
