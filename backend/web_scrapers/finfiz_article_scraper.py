@@ -2,15 +2,16 @@ import json
 import os
 from datetime import datetime
 from dotenv import load_dotenv
-
+import pandas as pd
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, TimeoutException, WebDriverException, ElementClickInterceptedException
+from selenium.common.exceptions import TimeoutException, ElementClickInterceptedException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
+from readability import Document  # Ensure readability is correctly installed
 
 load_dotenv()
 
@@ -99,7 +100,6 @@ class FinFizArticleScraper:
             else:
                 under_today = False
         return self.filtered_data
-        print(self.filtered_data)
 
     def fetch_article_table(self, ticker):
         self.ticker_search(ticker)
@@ -124,18 +124,46 @@ class FinFizArticleScraper:
     def process_ticker(self):
         self.login()
         tickers = self.grab_tickers()
+        all_articles = []
+        
         for ticker in tickers:
             print(f"Processing ticker: {ticker}")
             self.fetch_article_table(ticker)
-            # Now you can use self.filtered_data here
+            
             for article in self.filtered_data:
                 title, article_url, publisher, time = article
-                print(f"Title: {title}, URL: {article_url}, Publisher: {publisher}, Time: {time}")
+                try:
+                    article_text = self.fetch_article_text(article_url)
+                except TimeoutException:
+                    article_text = "Could not fetch article text."
+                all_articles.append({
+                    "Ticker": ticker,
+                    "Title": title,
+                    "URL": article_url,
+                    "Publisher": publisher,
+                    "Time": time,
+                    "Text": article_text
+                })
+                
         self.close()
+        
+        # Convert to DataFrame
+        articles_df = pd.DataFrame(all_articles)
+        print(articles_df)
+        return articles_df
 
 if __name__ == "__main__":
     scraper = FinFizArticleScraper()
-    scraper.process_ticker()
+    articles_df = scraper.process_ticker()
+
+
+
+
+
+
+
+
+
 
 
 
