@@ -68,13 +68,6 @@ class FinFizArticleScraper:
         search_box.send_keys(Keys.RETURN)  # Simulate pressing Enter key
         print(f"Searching for ticker: {ticker}")
 
-    def fetch_article_text(self, url):
-        self.driver.get(url)
-        article_body = WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.TAG_NAME, 'article'))
-        )
-        return article_body.text  # Fetch all article text
-
     def fetch_article_data(self, ticker):
         self.ticker_search(ticker)
         WebDriverWait(self.driver, 20).until(
@@ -86,7 +79,8 @@ class FinFizArticleScraper:
         rows = soup.find_all('tr', {'class': 'cursor-pointer has-label'})
 
         article_data = []
-        unique_titles = set()
+        current_date = None
+        today_str = "Today"
 
         for row in rows:
             try:
@@ -94,46 +88,53 @@ class FinFizArticleScraper:
                 if "sponsored" in row.get_text().lower():
                     continue
 
-                date_published = row.find('td', {'align': 'right'}).text.strip()
+                date_cell = row.find('td', {'align': 'right'})
+                if date_cell:
+                    date_published = date_cell.text.strip()
+                    if today_str in date_published:
+                        current_date = today_str
+                    elif current_date != today_str:
+                        break
+                    else:
+                        date_published = current_date
+
                 title = row.find('a', {'class': 'tab-link-news'}).text.strip()
                 article_url = row.find('a', {'class': 'tab-link-news'}).get('href')
                 publisher = row.find('div', {'class': 'news-link-right'}).text.strip()
 
-                # Only process articles from today
-                if not date_published.startswith('Today'):
-                    continue
-
                 print(f"Found article - Title: {title}, Date: {date_published}, URL: {article_url}, Publisher: {publisher}")
+                article_data.append((title, article_url, date_published, publisher))
 
-                if title not in unique_titles:
-                    unique_titles.add(title)
-                    article_text = self.fetch_article_text(article_url)
-                    article_data.append({
-                        "title": title,
-                        "url": article_url,
-                        "date_published": date_published,
-                        "publisher": publisher,
-                        "article_text": article_text
-                    })
             except Exception as e:
                 print(f"Error processing article: {e}")
 
         print(f"Found {len(article_data)} relevant articles for {ticker}")
         return article_data
 
+    def fetch_article_text(self, url):
+        self.driver.get(url)
+        article_body = WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.TAG_NAME, 'article'))
+        )
+        return article_body.text[:512]  # Truncate text to the model's maximum sequence length
+
     def close(self):
         self.driver.quit()
 
-    def process_ticker(self, ticker):
+    def process_ticker(self):
         self.login()
-        article_data = self.fetch_article_data(ticker)
-        print(f"Article data for {ticker}: {article_data}")
+        tickers = self.grab_tickers()
+        for ticker in tickers:
+            print(f"Processing ticker: {ticker}")
+            article_data = self.fetch_article_data(ticker)
+            print(f"Article data for {ticker}: {article_data}")
         self.close()
-        return article_data
 
 if __name__ == "__main__":
     scraper = FinFizArticleScraper()
     scraper.process_ticker()
+
+
 
 
 
