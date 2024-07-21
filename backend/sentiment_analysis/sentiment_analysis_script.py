@@ -1,4 +1,5 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
+# Performs sentiment analysis on articles text using FinBERT
 
 class SentimentAnalyzer:
     def __init__(self):

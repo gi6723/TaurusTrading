@@ -1,0 +1,1 @@
+# Fetches articles from TradingView

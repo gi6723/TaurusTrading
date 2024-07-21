@@ -1,14 +1,506 @@
 [
     {
-        "No.":"1",
-        "Ticker":"NVDA",
-        "Company":"SILO Pharma Inc",
-        "Sector":"Healthcare",
-        "Industry":"Biotechnology",
-        "Country":"USA",
-        "Market Cap":"12.80M",
-        "Price":"3.47",
-        "Change":"54.22%",
-        "Volume":"105,079,871"
+        "No.": "1",
+        "Ticker": "NVDA",
+        "Company": "SILO Pharma Inc",
+        "Sector": "Healthcare",
+        "Industry": "Biotechnology",
+        "Country": "USA",
+        "Market Cap": "12.80M",
+        "Price": "3.47",
+        "Change": "54.22%",
+        "Volume": "105,079,871",
+        "Articles": [
+            {
+                "Website": "FinViz",
+                "Title": "3 Consumer Tech Powerhouses to Buy in July",
+                "URL": "https://investorplace.com/2024/07/3-consumer-tech-powerhouses-to-buy-in-july/",
+                "Publisher": "(InvestorPlace)",
+                "Time": "01:00PM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Is Big Tech still make or break for earnings seasons?",
+                "URL": "https://finance.yahoo.com/video/big-tech-still-break-earnings-140023491.html",
+                "Publisher": "(Yahoo Finance Video)",
+                "Time": "10:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Why Is NVIDIA Corporation (NVDA) the Most Profitable Stock of the Last 20 Years?",
+                "URL": "https://finance.yahoo.com/news/why-nvidia-corporation-nvda-most-135757888.html",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:57AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Is Clean Harbors, Inc. (CLH) a Profitable Stock to Buy Right Now?",
+                "URL": "https://www.insidermonkey.com/blog/is-clean-harbors-inc-clh-a-profitable-stock-to-buy-right-now-1324881/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:54AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "RadNet, Inc. (RDNT): Is This Profitable Stock a Strong Buy Now?",
+                "URL": "https://www.insidermonkey.com/blog/radnet-inc-rdnt-is-this-profitable-stock-a-strong-buy-now-1324878/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:51AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Novo Nordisk A/S (NVO): The Most Profitable Stock of the Last 20 Years According to Analysts?",
+                "URL": "https://www.insidermonkey.com/blog/novo-nordisk-a-s-nvo-the-most-profitable-stock-of-the-last-20-years-according-to-analysts-1324874/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:48AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "1 No-Brainer Artificial Intelligence (AI) ETF to Buy Right Now for Less Than $1,000",
+                "URL": "https://finance.yahoo.com/m/4f0fb37d-5fee-3027-83f4-024890082067/1-no-brainer-artificial.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "09:45AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Amazon.com, Inc. (AMZN): Hedge Funds Are Bullish on This Profitable Stock",
+                "URL": "https://www.insidermonkey.com/blog/amazon-com-inc-amzn-hedge-funds-are-bullish-on-this-profitable-stock-1324871/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:28AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Big Tech Stock Slump Amps Up Pressure to Deliver on Earnings",
+                "URL": "https://finance.yahoo.com/news/big-tech-stock-slump-amps-130003263.html",
+                "Publisher": "(Bloomberg)",
+                "Time": "09:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Nvidia and chip stocks tank, the Trump Trade, Wall Street's J.D. Vance problem: Markets news roundup",
+                "URL": "https://qz.com/nvidia-chip-stocks-donald-trump-jd-vance-markets-news-1851600050",
+                "Publisher": "(Quartz)",
+                "Time": "09:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Why Is HEICO Corporation (HEI) One of the Most Profitable Stocks for the Last 20 Years?",
+                "URL": "https://www.insidermonkey.com/blog/why-is-heico-corporation-hei-one-of-the-most-profitable-stocks-for-the-last-20-years-1324861/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "08:39AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Where Will Nvidia Stock Be in 20 Years?",
+                "URL": "https://finance.yahoo.com/m/80454c97-ba50-33f5-ae2b-354707404b1f/where-will-nvidia-stock-be-in.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "08:21AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "3 Things Every Nvidia Investor Must Know",
+                "URL": "https://finance.yahoo.com/m/4954162f-12bb-3f67-80dd-be8bf205a1c3/3-things-every-nvidia.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "07:15AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "What a List of the Best-Performing Stocks of the Past Century Tells Us",
+                "URL": "https://www.investopedia.com/these-are-the-best-performing-stocks-of-the-last-century-8680461",
+                "Publisher": "(Investopedia)",
+                "Time": "07:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Is AMD's Latest Deal a Game-Changer?",
+                "URL": "https://finance.yahoo.com/m/f06b00d7-289d-38a3-84d1-3743df87efbd/is-amd%27s-latest-deal-a.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "06:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Is Barrick Gold Corporation (GOLD) the Best Gold Stock to Buy According to Reddit and Robinhood?",
+                "URL": "https://www.insidermonkey.com/blog/is-barrick-gold-corporation-gold-the-best-gold-stock-to-buy-according-to-reddit-and-robinhood-1324707/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "05:46AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Billionaires Are Selling These 3 Artificial Intelligence (AI) Stocks Right Now",
+                "URL": "https://finance.yahoo.com/m/87ee7992-1bda-3d13-b685-1df2e0c7d359/billionaires-are-selling.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "05:45AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Investing Later in Life? Putting Money in This ETF Can Help You Make the Most of It",
+                "URL": "https://finance.yahoo.com/m/f5d5236d-8899-3849-b084-cf8881fa06c6/investing-later-in-life%3F.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "05:20AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "2 Artificial Intelligence (AI) Stocks That Could Make You a Millionaire",
+                "URL": "https://finance.yahoo.com/m/ee4848a9-d665-394c-bb4a-2b275ce67f3a/2-artificial-intelligence.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "05:15AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Newmont Corporation (NEM): Are Wall Street Analysts Bullish on This Gold Stock Now?",
+                "URL": "https://www.insidermonkey.com/blog/newmont-corporation-nem-are-wall-street-analysts-bullish-on-this-gold-stock-now-1324699/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "05:05AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Agnico Eagle Mines Limited (AEM): Among the Best Gold Stocks to Buy According to Reddit and Robinhood?",
+                "URL": "https://www.insidermonkey.com/blog/agnico-eagle-mines-limited-aem-among-the-best-gold-stocks-to-buy-according-to-reddit-and-robinhood-1324696/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "04:54AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Opinion: This Nvidia Forecast All but Confirms That the Artificial Intelligence (AI) Bubble Will Burst Sooner Rather Than Later",
+                "URL": "https://finance.yahoo.com/m/ed708c0f-240d-30e7-8b6d-f5f14ba683c9/opinion%3A-this-nvidia-forecast.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "04:51AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Kinross Gold Corporation (KGC): Are Hedge Funds Bullish on This Gold Stock Right Now?",
+                "URL": "https://www.insidermonkey.com/blog/kinross-gold-corporation-kgc-are-hedge-funds-bullish-on-this-gold-stock-right-now-1324692/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "04:49AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Sandstorm Gold Ltd. (SAND): The Best Gold Stock Now According to Reddit and Robinhood?",
+                "URL": "https://www.insidermonkey.com/blog/sandstorm-gold-ltd-sand-the-best-gold-stock-now-according-to-reddit-and-robinhood-1324688/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "04:44AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "B2Gold Corp. (BTG): Is It the Best Gold Stock to Buy Now?",
+                "URL": "https://www.insidermonkey.com/blog/b2gold-corp-btg-is-it-the-best-gold-stock-to-buy-now-1324685/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "04:38AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "3 AI Stocks to Buy for \"One of the Largest Investment Opportunities in Human History,\" According to Certain Wall Street Analysts",
+                "URL": "https://finance.yahoo.com/m/f585b338-9bfc-3e30-80a4-2f14d9cbaebf/3-ai-stocks-to-buy-for-%22one.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "04:12AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Jensen Huang Just Sold Nvidia Stock. Should You?",
+                "URL": "https://finance.yahoo.com/m/448d1739-a989-3c67-9a3c-9d7d88a3bf3f/jensen-huang-just-sold-nvidia.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "04:05AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Organogenesis Holdings Inc. (ORGO): Is It Among the Best NASDAQ Penny Stocks to Invest In Now?",
+                "URL": "https://www.insidermonkey.com/blog/organogenesis-holdings-inc-orgo-is-it-among-the-best-nasdaq-penny-stocks-to-invest-in-now-1324630/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "01:44AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "3 Consumer Tech Powerhouses to Buy in July",
+                "URL": "https://investorplace.com/2024/07/3-consumer-tech-powerhouses-to-buy-in-july/",
+                "Publisher": "(InvestorPlace)",
+                "Time": "01:00PM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Is Big Tech still make or break for earnings seasons?",
+                "URL": "https://finance.yahoo.com/video/big-tech-still-break-earnings-140023491.html",
+                "Publisher": "(Yahoo Finance Video)",
+                "Time": "10:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Why Is NVIDIA Corporation (NVDA) the Most Profitable Stock of the Last 20 Years?",
+                "URL": "https://finance.yahoo.com/news/why-nvidia-corporation-nvda-most-135757888.html",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:57AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Is Clean Harbors, Inc. (CLH) a Profitable Stock to Buy Right Now?",
+                "URL": "https://www.insidermonkey.com/blog/is-clean-harbors-inc-clh-a-profitable-stock-to-buy-right-now-1324881/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:54AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "RadNet, Inc. (RDNT): Is This Profitable Stock a Strong Buy Now?",
+                "URL": "https://www.insidermonkey.com/blog/radnet-inc-rdnt-is-this-profitable-stock-a-strong-buy-now-1324878/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:51AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Novo Nordisk A/S (NVO): The Most Profitable Stock of the Last 20 Years According to Analysts?",
+                "URL": "https://www.insidermonkey.com/blog/novo-nordisk-a-s-nvo-the-most-profitable-stock-of-the-last-20-years-according-to-analysts-1324874/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:48AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "1 No-Brainer Artificial Intelligence (AI) ETF to Buy Right Now for Less Than $1,000",
+                "URL": "https://finance.yahoo.com/m/4f0fb37d-5fee-3027-83f4-024890082067/1-no-brainer-artificial.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "09:45AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Amazon.com, Inc. (AMZN): Hedge Funds Are Bullish on This Profitable Stock",
+                "URL": "https://www.insidermonkey.com/blog/amazon-com-inc-amzn-hedge-funds-are-bullish-on-this-profitable-stock-1324871/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "09:28AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Big Tech Stock Slump Amps Up Pressure to Deliver on Earnings",
+                "URL": "https://finance.yahoo.com/news/big-tech-stock-slump-amps-130003263.html",
+                "Publisher": "(Bloomberg)",
+                "Time": "09:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Nvidia and chip stocks tank, the Trump Trade, Wall Street's J.D. Vance problem: Markets news roundup",
+                "URL": "https://qz.com/nvidia-chip-stocks-donald-trump-jd-vance-markets-news-1851600050",
+                "Publisher": "(Quartz)",
+                "Time": "09:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Why Is HEICO Corporation (HEI) One of the Most Profitable Stocks for the Last 20 Years?",
+                "URL": "https://www.insidermonkey.com/blog/why-is-heico-corporation-hei-one-of-the-most-profitable-stocks-for-the-last-20-years-1324861/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "08:39AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Where Will Nvidia Stock Be in 20 Years?",
+                "URL": "https://finance.yahoo.com/m/80454c97-ba50-33f5-ae2b-354707404b1f/where-will-nvidia-stock-be-in.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "08:21AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "3 Things Every Nvidia Investor Must Know",
+                "URL": "https://finance.yahoo.com/m/4954162f-12bb-3f67-80dd-be8bf205a1c3/3-things-every-nvidia.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "07:15AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "What a List of the Best-Performing Stocks of the Past Century Tells Us",
+                "URL": "https://www.investopedia.com/these-are-the-best-performing-stocks-of-the-last-century-8680461",
+                "Publisher": "(Investopedia)",
+                "Time": "07:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Is AMD's Latest Deal a Game-Changer?",
+                "URL": "https://finance.yahoo.com/m/f06b00d7-289d-38a3-84d1-3743df87efbd/is-amd%27s-latest-deal-a.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "06:00AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Is Barrick Gold Corporation (GOLD) the Best Gold Stock to Buy According to Reddit and Robinhood?",
+                "URL": "https://www.insidermonkey.com/blog/is-barrick-gold-corporation-gold-the-best-gold-stock-to-buy-according-to-reddit-and-robinhood-1324707/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "05:46AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Billionaires Are Selling These 3 Artificial Intelligence (AI) Stocks Right Now",
+                "URL": "https://finance.yahoo.com/m/87ee7992-1bda-3d13-b685-1df2e0c7d359/billionaires-are-selling.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "05:45AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Investing Later in Life? Putting Money in This ETF Can Help You Make the Most of It",
+                "URL": "https://finance.yahoo.com/m/f5d5236d-8899-3849-b084-cf8881fa06c6/investing-later-in-life%3F.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "05:20AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "2 Artificial Intelligence (AI) Stocks That Could Make You a Millionaire",
+                "URL": "https://finance.yahoo.com/m/ee4848a9-d665-394c-bb4a-2b275ce67f3a/2-artificial-intelligence.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "05:15AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Newmont Corporation (NEM): Are Wall Street Analysts Bullish on This Gold Stock Now?",
+                "URL": "https://www.insidermonkey.com/blog/newmont-corporation-nem-are-wall-street-analysts-bullish-on-this-gold-stock-now-1324699/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "05:05AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Agnico Eagle Mines Limited (AEM): Among the Best Gold Stocks to Buy According to Reddit and Robinhood?",
+                "URL": "https://www.insidermonkey.com/blog/agnico-eagle-mines-limited-aem-among-the-best-gold-stocks-to-buy-according-to-reddit-and-robinhood-1324696/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "04:54AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Opinion: This Nvidia Forecast All but Confirms That the Artificial Intelligence (AI) Bubble Will Burst Sooner Rather Than Later",
+                "URL": "https://finance.yahoo.com/m/ed708c0f-240d-30e7-8b6d-f5f14ba683c9/opinion%3A-this-nvidia-forecast.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "04:51AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Kinross Gold Corporation (KGC): Are Hedge Funds Bullish on This Gold Stock Right Now?",
+                "URL": "https://www.insidermonkey.com/blog/kinross-gold-corporation-kgc-are-hedge-funds-bullish-on-this-gold-stock-right-now-1324692/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "04:49AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Sandstorm Gold Ltd. (SAND): The Best Gold Stock Now According to Reddit and Robinhood?",
+                "URL": "https://www.insidermonkey.com/blog/sandstorm-gold-ltd-sand-the-best-gold-stock-now-according-to-reddit-and-robinhood-1324688/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "04:44AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "B2Gold Corp. (BTG): Is It the Best Gold Stock to Buy Now?",
+                "URL": "https://www.insidermonkey.com/blog/b2gold-corp-btg-is-it-the-best-gold-stock-to-buy-now-1324685/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "04:38AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "3 AI Stocks to Buy for \"One of the Largest Investment Opportunities in Human History,\" According to Certain Wall Street Analysts",
+                "URL": "https://finance.yahoo.com/m/f585b338-9bfc-3e30-80a4-2f14d9cbaebf/3-ai-stocks-to-buy-for-%22one.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "04:12AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Jensen Huang Just Sold Nvidia Stock. Should You?",
+                "URL": "https://finance.yahoo.com/m/448d1739-a989-3c67-9a3c-9d7d88a3bf3f/jensen-huang-just-sold-nvidia.html",
+                "Publisher": "(Motley Fool)",
+                "Time": "04:05AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Organogenesis Holdings Inc. (ORGO): Is It Among the Best NASDAQ Penny Stocks to Invest In Now?",
+                "URL": "https://www.insidermonkey.com/blog/organogenesis-holdings-inc-orgo-is-it-among-the-best-nasdaq-penny-stocks-to-invest-in-now-1324630/",
+                "Publisher": "(Insider Monkey)",
+                "Time": "01:44AM"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Is Big Tech still make or break for earnings seasons?",
+                "Url": "https://finance.yahoo.com/video/big-tech-still-break-earnings-140023491.html",
+                "Publisher": "Yahoo Finance Video",
+                "Time": "13 hours ago   NVDA  -2.61%"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Dow Jones Futures: Stock Market Struggles As Huge Earnings Loom; Trump Pledges Hit Tesla",
+                "Url": "https://finance.yahoo.com/m/09022803-9dc1-3463-b0f1-233c70ce42c4/dow-jones-futures-stock.html",
+                "Publisher": "Investor's Business Daily",
+                "Time": "12 hours ago   TSLA  -4.02%   NVDA  -2.61%   ^GSPC"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Why Is NVIDIA Corporation (NVDA) the Most Profitable Stock of the Last 20 Years?",
+                "Url": "https://finance.yahoo.com/news/why-nvidia-corporation-nvda-most-135757888.html",
+                "Publisher": "Insider Monkey",
+                "Time": "13 hours ago   NVDA  -2.61%   ^GSPC"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "1 No-Brainer Artificial Intelligence (AI) ETF to Buy Right Now for Less Than $1,000",
+                "Url": "https://finance.yahoo.com/news/1-no-brainer-artificial-intelligence-134500594.html",
+                "Publisher": "Motley Fool",
+                "Time": "13 hours ago   NVDA  -2.61%   ^GSPC     MSFT  -0.74%"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Big Tech Stock Slump Amps Up Pressure to Deliver on Earnings",
+                "Url": "https://finance.yahoo.com/news/big-tech-stock-slump-amps-130003263.html",
+                "Publisher": "Bloomberg",
+                "Time": "14 hours ago   NVDA  -2.61%   TSLA  -4.02%   GOOG  +0.09%"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Where Will Nvidia Stock Be in 20 Years?",
+                "Url": "https://finance.yahoo.com/news/where-nvidia-stock-20-years-122100271.html",
+                "Publisher": "Motley Fool",
+                "Time": "14 hours ago   NVDA  -2.61%   ORCL     AAPL  +0.06%"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "3 Things Every Nvidia Investor Must Know",
+                "Url": "https://finance.yahoo.com/news/3-things-every-nvidia-investor-111500824.html",
+                "Publisher": "Motley Fool",
+                "Time": "15 hours ago   NVDA  -2.61%   ^GSPC"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Is AMD's Latest Deal a Game-Changer?",
+                "Url": "https://finance.yahoo.com/news/amds-latest-deal-game-changer-100000843.html",
+                "Publisher": "Motley Fool",
+                "Time": "17 hours ago   AMD  -2.69%   NVDA  -2.61%"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Billionaires Are Selling These 3 Artificial Intelligence (AI) Stocks Right Now",
+                "Url": "https://finance.yahoo.com/news/billionaires-selling-3-artificial-intelligence-094500777.html",
+                "Publisher": "Motley Fool",
+                "Time": "17 hours ago   NVDA  -2.61%   META  +0.20%   SMCI"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Investing Later in Life? Putting Money in This ETF Can Help You Make the Most of It",
+                "Url": "https://finance.yahoo.com/news/investing-later-life-putting-money-092000680.html",
+                "Publisher": "Motley Fool",
+                "Time": "17 hours ago   ^GSPC     NVDA  -2.61%   MSFT  -0.74%"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "2 Artificial Intelligence (AI) Stocks That Could Make You a Millionaire",
+                "Url": "https://finance.yahoo.com/news/2-artificial-intelligence-ai-stocks-091500888.html",
+                "Publisher": "Motley Fool",
+                "Time": "17 hours ago   MU  -2.72%   NVDA  -2.61%"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Opinion: This Nvidia Forecast All but Confirms That the Artificial Intelligence (AI) Bubble Will Burst Sooner Rather Than Later",
+                "Url": "https://finance.yahoo.com/news/opinion-nvidia-forecast-confirms-artificial-085100368.html",
+                "Publisher": "Motley Fool",
+                "Time": "18 hours ago   NVDA  -2.61%   INTC  -5.42%   AMD  -2.69%"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "3 AI Stocks to Buy for \"One of the Largest Investment Opportunities in Human History,\" According to Certain Wall Street Analysts",
+                "Url": "https://finance.yahoo.com/news/3-ai-stocks-buy-one-081200596.html",
+                "Publisher": "Motley Fool",
+                "Time": "18 hours ago   NVDA  -2.61%   AVGO     SMCI"
+            },
+            {
+                "Website": "yahoo finance",
+                "Title": "Jensen Huang Just Sold Nvidia Stock. Should You?",
+                "Url": "https://finance.yahoo.com/news/jensen-huang-just-sold-nvidia-080500600.html",
+                "Publisher": "Motley Fool",
+                "Time": "19 hours ago   NVDA  -2.61%"
+            }
+        ]
     }
 ]

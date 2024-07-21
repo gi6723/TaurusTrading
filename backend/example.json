@@ -1,0 +1,58 @@
+[
+    {
+        "No.": "1",
+        "Ticker": "NVDA",
+        "Company": "NVIDIA Corporation",
+        "Sector": "Technology",
+        "Industry": "Semiconductors",
+        "Country": "USA",
+        "Market Cap": "500.25B",
+        "Price": "480.56",
+        "Change": "2.45%",
+        "Volume": "25,000,000",
+        "Articles": [
+            {
+                "Website": "finviz",
+                "Release Time": "08:00AM",
+                "Title": "The Best Strategy for Financial Freedom and Retiring Early",
+                "Publisher": "Insider Monkey",
+                "Relevancy Check": {
+                    "Relevant": true,
+                    "Score": 0.85
+                },
+                "Sentiment Analysis": {
+                    "Sentiment Score": 0.75,
+                    "Sentiment Label": "Positive"
+                }
+            },
+            {
+                "Website": "yahoo",
+                "Release Time": "09:00AM",
+                "Title": "The $6.5 Million Bet Against Nvidia",
+                "Publisher": "InvestorPlace",
+                "Relevancy Check": {
+                    "Relevant": true,
+                    "Score": 0.90
+                },
+                "Sentiment Analysis": {
+                    "Sentiment Score": 0.55,
+                    "Sentiment Label": "Neutral"
+                }
+            },
+            {
+                "Website": "tradingview",
+                "Release Time": "10:00AM",
+                "Title": "Magnificent Seven Stocks: Nvidia Stock Slides To Key Level",
+                "Publisher": "Yahoo Finance",
+                "Relevancy Check": {
+                    "Relevant": false,
+                    "Score": 0.30
+                },
+                "Sentiment Analysis": {
+                    "Sentiment Score": null,
+                    "Sentiment Label": null
+                }
+            }
+        ]
+    }
+]

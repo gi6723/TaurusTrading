@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
-from readability import Document  # Ensure readability is correctly installed
+
 
 load_dotenv()
 
@@ -52,14 +52,6 @@ class FinFizArticleScraper:
         self.add_input_for_login(by=By.NAME, value="password", text=password)
         self.uncheck_remember_me_for_login()
         self.submit_for_login()
-
-    def grab_tickers(self):
-        tickers = []
-        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as file:
-            data = json.load(file)
-            for item in data:
-                tickers.append(item["Ticker"])
-        return tickers
 
     def ticker_search(self, ticker):
         search_box = WebDriverWait(self.driver, 10).until(
@@ -111,50 +103,54 @@ class FinFizArticleScraper:
         table_html = self.driver.find_element(By.ID, 'news-table').get_attribute('outerHTML')
         self.article_data_filter(table_html)
         
-    def fetch_article_text(self, url):
-        self.driver.get(url)
-        article_body = WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.TAG_NAME, 'article'))
-        )
-        return article_body.text[:512]  # Truncate text to the model's maximum sequence length
 
     def close(self):
         self.driver.quit()
 
-    def process_ticker(self):
+    def process_ticker(self,ticker):
         self.login()
-        tickers = self.grab_tickers()
+        
         all_articles = []
         
-        for ticker in tickers:
-            print(f"Processing ticker: {ticker}")
-            self.fetch_article_table(ticker)
-            
-            for article in self.filtered_data:
-                title, article_url, publisher, time = article
-                try:
-                    article_text = self.fetch_article_text(article_url)
-                except TimeoutException:
-                    article_text = "Could not fetch article text."
-                all_articles.append({
-                    "Ticker": ticker,
-                    "Title": title,
-                    "URL": article_url,
-                    "Publisher": publisher,
-                    "Time": time,
-                    "Text": article_text
-                })
+        
+        print(f"Processing ticker: {ticker}")
+        self.fetch_article_table(ticker)
+        
+        for article in self.filtered_data:
+            title, article_url, publisher, time = article
+            all_articles.append({
+                "Website": "FinViz",
+                "Title": title,
+                "URL": article_url,
+                "Publisher": publisher,
+                "Time": time,
+            })
                 
         self.close()
         
+        # Update JSON file
+        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as file:
+            data = json.load(file)
+
+        for item in data:
+            if item["Ticker"] == ticker:
+                if "Articles" not in item:
+                    item["Articles"] = []
+                item["Articles"].extend(all_articles)
+                break
+
+        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "w") as file:
+            json.dump(data, file, indent=4)
+
         # Convert to DataFrame
         articles_df = pd.DataFrame(all_articles)
-        print(articles_df)
-        return articles_df
+       
+        #return articles_df
 
 if __name__ == "__main__":
     scraper = FinFizArticleScraper()
-    articles_df = scraper.process_ticker()
+    articles_df = scraper.process_ticker("NVDA")
+
 
 
 
