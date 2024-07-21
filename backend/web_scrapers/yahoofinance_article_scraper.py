@@ -1,7 +1,5 @@
 import json
 import os
-from datetime import datetime, timedelta
-import pytz
 from dotenv import load_dotenv
 import pandas as pd
 from selenium import webdriver
@@ -11,7 +9,6 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-import time
 
 class YahooFinanceArticleScraper:
     def __init__(self):
@@ -72,7 +69,7 @@ class YahooFinanceArticleScraper:
                         try:
                             time = self.extract_time(article_date.text)
                             if "hours ago" in time:
-                                website = "yahoo finance"
+                                website = "Yahoo Finance"
                                 article_title = row.find('a').get('title')
                                 url = row.find('a').get('href').replace("\n", "")
                                 publisher = self.extract_publisher(article_date.text)
