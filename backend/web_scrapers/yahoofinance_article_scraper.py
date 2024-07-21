@@ -5,12 +5,13 @@ import pytz
 from dotenv import load_dotenv
 import pandas as pd
 from selenium import webdriver
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+import time
 
 class YahooFinanceArticleScraper:
     def __init__(self):
@@ -55,64 +56,74 @@ class YahooFinanceArticleScraper:
         with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "w") as file:
             json.dump(data, file, indent=4)
 
-    def filter_articles(self, articles):
+    def filter_articles(self, articles, retries=3):
         filtered_articles = []
         soup = BeautifulSoup(articles, 'html.parser')
-        try:
-            rows = soup.find_all('li', {'class': 'stream-item yf-7rcxn'})
-            if not rows:
-                print("No articles found with the specified class.")
-            for row in rows:
-                article_date = row.find('div', {'class': 'footer yf-1044anq'})
-                if article_date:
-                    try:
-                        time = self.extract_time(article_date.text)
-                        if "hours ago" in time:
-                            website = "yahoo finance"
-                            article_title = row.find('a').get('title')
-                            url = row.find('a').get('href').replace("\n", "")
-                            publisher = self.extract_publisher(article_date.text)
-                            filtered_articles.append({
-                                "Website": website,
-                                "Title": article_title,
-                                "Url": url,
-                                "Publisher": publisher,
-                                "Time": ""
-                            })
-                        else:
-                            continue
-                    except ValueError as ve:
-                        print(f"ValueError: {ve}")
-                else:
-                    print("Article date not found.")
-        except Exception as e:
-            print(f"Error filtering articles: {e}")
-        
+        attempt = 0
+
+        while attempt < retries:
+            try:
+                rows = soup.find_all('li', {'class': 'stream-item yf-7rcxn'})
+                if not rows:
+                    print("No articles found with the specified class.")
+                for row in rows:
+                    article_date = row.find('div', {'class': 'footer yf-1044anq'})
+                    if article_date:
+                        try:
+                            time = self.extract_time(article_date.text)
+                            if "hours ago" in time:
+                                website = "yahoo finance"
+                                article_title = row.find('a').get('title')
+                                url = row.find('a').get('href').replace("\n", "")
+                                publisher = self.extract_publisher(article_date.text)
+                                filtered_articles.append({
+                                    "Website": website,
+                                    "Title": article_title,
+                                    "Url": url,
+                                    "Publisher": publisher,
+                                    "Time": ""
+                                })
+                            else:
+                                continue
+                        except ValueError as ve:
+                            print(f"ValueError: {ve}")
+                    else:
+                        print("Article date not found.")
+                return filtered_articles
+            except Exception as e:
+                print(f"Error filtering articles on attempt {attempt+1}: {e}")
+                attempt += 1
+                time.sleep(2)  # Wait before retrying
+
+        print("Failed to filter articles after multiple attempts.")
         return filtered_articles
 
-    def fetch_articles(self, ticker):
-        self.driver.get(f"https://finance.yahoo.com/quote/{ticker}/news/")
+    def fetch_articles(self, ticker, retries=3):
+        attempt = 0
 
-        try:
-            # Wait for the element to be present
-            element = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CLASS_NAME, "news-stream"))
-            )
-        except TimeoutException:
-            print("Element with class 'news-stream' not found")
-            return []
+        while attempt < retries:
+            try:
+                self.driver.get(f"https://finance.yahoo.com/quote/{ticker}/news/")
 
-        try:
-            grid_html = self.driver.find_element(By.CLASS_NAME, "news-stream").get_attribute('outerHTML')
-            filtered_articles = self.filter_articles(grid_html)
-        except NoSuchElementException:
-            print("Element with class 'news-stream' was not found on the page.")
-            return []
-        except Exception as e:
-            print(f"Error fetching article grid: {e}")
-            return []
-        
-        return filtered_articles
+                # Wait for the element to be present
+                WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.CLASS_NAME, "news-stream"))
+                )
+
+                grid_html = self.driver.find_element(By.CLASS_NAME, "news-stream").get_attribute('outerHTML')
+                filtered_articles = self.filter_articles(grid_html)
+                return filtered_articles
+
+            except (TimeoutException, NoSuchElementException) as e:
+                print(f"Exception on attempt {attempt+1}: {e}")
+                attempt += 1
+                time.sleep(2)  # Wait before retrying
+            except Exception as e:
+                print(f"Unexpected error on attempt {attempt+1}: {e}")
+                break
+
+        print("Failed to fetch articles after multiple attempts.")
+        return []
 
     def close(self):
         self.driver.quit()
@@ -126,6 +137,7 @@ class YahooFinanceArticleScraper:
 if __name__ == "__main__":
     scraper = YahooFinanceArticleScraper()
     scraper.process_ticker("NVDA")
+
 
 
 
