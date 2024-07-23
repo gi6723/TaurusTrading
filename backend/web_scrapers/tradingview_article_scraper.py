@@ -3,14 +3,15 @@ import os
 import time
 from dotenv import load_dotenv
 from selenium import webdriver
-from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementNotInteractableException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException, ElementNotInteractableException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import requests
 from fake_useragent import UserAgent
-from openai import OpenAI
+import requests
+import whisper
+import certifi
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -21,8 +22,7 @@ class TradingViewArticleScraper:
         # options.add_argument("--headless")
         self.driver = webdriver.Firefox(options=options)
         self.user_agent = UserAgent()
-        api_key = os.getenv("ChatGPT_reCAPTCH_API_KEY")
-        self.openai_client = OpenAI(api_key=api_key)
+        os.environ['SSL_CERT_FILE'] = certifi.where()
 
     def add_input_for_login(self, by: By, value: str, text: str):
         try:
@@ -37,7 +37,7 @@ class TradingViewArticleScraper:
                 EC.element_to_be_clickable((By.CLASS_NAME, "submitButton-LQwxK8Bm"))
             )
             button = self.driver.find_element(by=By.CLASS_NAME, value="submitButton-LQwxK8Bm")
-            button.click()
+            self.scroll_and_click(button)
         except TimeoutException:
             print("Login button not found")
             return
@@ -48,7 +48,7 @@ class TradingViewArticleScraper:
                 EC.element_to_be_clickable((By.CLASS_NAME, "emailButton-nKAw8Hvt"))
             )
             email_button = self.driver.find_element(by=By.CLASS_NAME, value="emailButton-nKAw8Hvt")
-            email_button.click()
+            self.scroll_and_click(email_button)
         except TimeoutException:
             print("Email button not found")
             return
@@ -62,15 +62,11 @@ class TradingViewArticleScraper:
                 f.write(response.content)
             
             # Transcribe the audio file using the Whisper model
-            with open('.temp.wav', 'rb') as audio_file:
-                response = self.openai_client.Audio.transcribe(
-                    model="whisper-1",
-                    file=audio_file,
-                    filename="audio.wav",
-                    mime_type="audio/wav"
-                )
+            model = whisper.load_model("base")
+            result = model.transcribe('.temp.wav')
             
-            return response['text'].strip()
+            print(f"Transcription: {result['text'].strip()}")  # Print the transcription
+            return result['text'].strip()
         except Exception as e:
             print(f"An error occurred while transcribing the audio: {e}")
             return None
@@ -84,7 +80,7 @@ class TradingViewArticleScraper:
             checkbox = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.ID, "recaptcha-anchor"))
             )
-            checkbox.click()
+            self.scroll_and_click(checkbox)
             print("Clicked reCAPTCHA checkbox")
         except TimeoutException:
             print("reCAPTCHA checkbox not found or could not be clicked")
@@ -100,7 +96,7 @@ class TradingViewArticleScraper:
             audio_button = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.ID, "recaptcha-audio-button"))
             )
-            audio_button.click()
+            self.scroll_and_click(audio_button)
             print("Requested audio challenge")
         except TimeoutException:
             print("Audio challenge button not found or could not be clicked")
@@ -119,7 +115,7 @@ class TradingViewArticleScraper:
                 audio_response_field = self.driver.find_element(By.ID, "audio-response")
                 audio_response_field.send_keys(transcription)
                 verify_button = self.driver.find_element(By.ID, "recaptcha-verify-button")
-                verify_button.click()
+                self.scroll_and_click(verify_button)
                 print("Audio challenge solved")
             else:
                 print("Failed to transcribe audio")
@@ -127,6 +123,7 @@ class TradingViewArticleScraper:
             print(f"An error occurred while solving the audio challenge: {e}")
         finally:
             self.driver.switch_to.default_content()
+            self.submit_for_login()
 
     def recaptcha_bypass(self):
         try:
@@ -150,6 +147,15 @@ class TradingViewArticleScraper:
             print(f"An error occurred while trying to interact with the Recaptcha: {e}")
         finally:
             self.driver.switch_to.default_content()
+
+    def scroll_and_click(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        try:
+            element.click()
+        except ElementClickInterceptedException:
+            print("Element click intercepted, trying again")
+            time.sleep(2)
+            element.click()
 
     def login(self):
         try:
@@ -188,6 +194,8 @@ class TradingViewArticleScraper:
 if __name__ == "__main__":
     scraper = TradingViewArticleScraper()
     scraper.process_ticker("NVDA")
+
+
 
 
 
