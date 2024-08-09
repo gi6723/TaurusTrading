@@ -1,548 +1,331 @@
 [
     {
         "No.": "1",
-        "Ticker": "NVDA",
-        "Company": "SILO Pharma Inc",
+        "Ticker": "RGC",
+        "Company": "Regencell Bioscience Holdings Ltd",
         "Sector": "Healthcare",
-        "Industry": "Biotechnology",
-        "Country": "USA",
-        "Market Cap": "12.80M",
-        "Price": "3.47",
-        "Change": "54.22%",
-        "Volume": "105,079,871",
-        "Articles": [
-            {
-                "Website": "FinViz",
-                "Title": "Exclusive-Illicit chip flows to Russia seen slowing, but China, Hong Kong remain transshipment hubs",
-                "URL": "https://finance.yahoo.com/news/exclusive-illicit-chip-flows-russia-220504244.html",
-                "Publisher": "(Reuters)",
-                "Time": "06:05PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Up 145% So Far This Year, Here's What It Will Take for Nvidia Stock to Drop, and Why I Think It Could Happen Sooner Rather Than Later",
-                "URL": "https://finance.yahoo.com/m/e64cd102-59cf-3c01-a652-dcf6c73c57ab/up-145%25-so-far-this-year%2C.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "06:00PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "The Best Luxury Yacht Builder and Shipyard in the World",
-                "URL": "https://www.insidermonkey.com/blog/the-best-luxury-yacht-builder-and-shipyard-in-the-world-1322828/",
-                "Publisher": "(Insider Monkey)",
-                "Time": "05:37PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "The Best Place to Retire in Romania",
-                "URL": "https://www.insidermonkey.com/blog/the-best-place-to-retire-in-romania-1325028/",
-                "Publisher": "(Insider Monkey)",
-                "Time": "04:51PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Forget Nvidia: Consider These 2 Millionaire-Maker Stocks to Buy Instead",
-                "URL": "https://finance.yahoo.com/m/58abd766-3028-3125-a002-47f49b84cb68/forget-nvidia%3A-consider-these.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "02:30PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "The Best U.S. City for Retirement Healthcare",
-                "URL": "https://www.insidermonkey.com/blog/the-best-u-s-city-for-retirement-healthcare-1324998/",
-                "Publisher": "(Insider Monkey)",
-                "Time": "11:00AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Is It Too Late to Buy Nvidia Stock in the Second Half of 2024?",
-                "URL": "https://finance.yahoo.com/m/2ef04dcf-26f5-3632-85d4-5a31f299f1f6/is-it-too-late-to-buy-nvidia.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "09:41AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Chips and Taiwan Are a New Cloud for Tech Earnings",
-                "URL": "https://finance.yahoo.com/m/18402b37-4753-3f4d-944e-d76ee9ed8f21/chips-and-taiwan-are-a-new.html",
-                "Publisher": "(The Wall Street Journal)",
-                "Time": "09:30AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Big Investor Buys Nvidia, Intel Stock. This Is What It Sold.",
-                "URL": "https://finance.yahoo.com/m/5ab94274-8606-318f-8c1e-ba81592b52f9/big-investor-buys-nvidia%2C.html",
-                "Publisher": "(Barrons.com)",
-                "Time": "08:05AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Stock-Split Fever: 2 Recent Stock-Split Stocks and 1 That Could Be Next",
-                "URL": "https://finance.yahoo.com/m/c61f3573-f91f-3347-9f1b-cae84fb71f1e/stock-split-fever%3A-2-recent.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "07:30AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Broadcom Completed Its 10-for-1 Stock Split but Is Still the Largest Holding in These 2 Vanguard ETFs",
-                "URL": "https://finance.yahoo.com/m/a9f45345-f188-3821-bb6f-ed873ac72f85/broadcom-completed-its.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "07:14AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Is Intel Stock a Buy Now?",
-                "URL": "https://finance.yahoo.com/m/91075d0d-6469-37ef-879e-cc674052f094/is-intel-stock-a-buy-now%3F.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "06:15AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "3 Nasdaq Stocks to Buy Now: Q3 Edition",
-                "URL": "https://investorplace.com/2024/07/3-nasdaq-stocks-to-buy-now-q3-edition/",
-                "Publisher": "(InvestorPlace)",
-                "Time": "06:14AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Is Nvidia Heading to $200 in the 2nd Half?",
-                "URL": "https://finance.yahoo.com/m/3b92435e-244f-3fff-b0cc-f99cfd08996e/is-nvidia-heading-to-%24200-in.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "05:08AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Billionaires Are Selling Nvidia Stock and Buying an Index Fund That Could Soar Up to 5,655%, According to Certain Wall Street Analysts",
-                "URL": "https://finance.yahoo.com/m/6ddef0b6-7e1a-39f2-b5d2-2dab9ac0b6be/billionaires-are-selling.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "05:05AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Should You Buy the Second-Highest Yielding Vanguard S&P 500 Sector ETF?",
-                "URL": "https://finance.yahoo.com/m/3f69f30a-c21d-378a-b3bc-30d04a9f96bd/should-you-buy-the.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "04:58AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "2 Brilliant Stocks Could Join Apple, Microsoft, and Nvidia as Trillion-Dollar Companies by 2025",
-                "URL": "https://finance.yahoo.com/m/886385a7-c804-349c-bfa0-c8014ad14c24/2-brilliant-stocks-could-join.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "04:44AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Every Chip Stock Investor Should Hold a Position in Intel, and We Were Just Reminded Why",
-                "URL": "https://finance.yahoo.com/m/7e16b188-0e4b-3ed9-9c4b-559371f14677/every-chip-stock-investor.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "04:30AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "This Billionaire Predicted the Nvidia Stock Rally. Now He's Making a Prediction Elsewhere With an Investment That's Already Jumped 13% in the Last Month.",
-                "URL": "https://finance.yahoo.com/m/9580d4b7-7992-3cfe-bc28-85f5a1591e91/this-billionaire-predicted.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "04:15AM"
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Forget Nvidia: Consider These 2 Millionaire-Maker Stocks to Buy Instead",
-                "Url": "https://finance.yahoo.com/news/forget-nvidia-consider-2-millionaire-183000524.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Is It Too Late to Buy Nvidia Stock in the Second Half of 2024?",
-                "Url": "https://finance.yahoo.com/news/too-buy-nvidia-stock-second-134100430.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Chips and Taiwan Are a New Cloud for Tech Earnings",
-                "Url": "https://finance.yahoo.com/m/18402b37-4753-3f4d-944e-d76ee9ed8f21/chips-and-taiwan-are-a-new.html",
-                "Publisher": "The Wall Street Journal",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Big Investor Buys Nvidia, Intel Stock. This Is What It Sold.",
-                "Url": "https://finance.yahoo.com/m/5ab94274-8606-318f-8c1e-ba81592b52f9/big-investor-buys-nvidia-.html",
-                "Publisher": "Barrons.com",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Stock-Split Fever: 2 Recent Stock-Split Stocks and 1 That Could Be Next",
-                "Url": "https://finance.yahoo.com/news/stock-split-fever-2-recent-113000768.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Broadcom Completed Its 10-for-1 Stock Split but Is Still the Largest Holding in These 2 Vanguard ETFs",
-                "Url": "https://finance.yahoo.com/news/broadcom-completed-10-1-stock-111400389.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Is Intel Stock a Buy Now?",
-                "Url": "https://finance.yahoo.com/news/intel-stock-buy-now-101500717.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Is Nvidia Heading to $200 in the 2nd Half?",
-                "Url": "https://finance.yahoo.com/news/nvidia-heading-200-2nd-half-090800454.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Billionaires Are Selling Nvidia Stock and Buying an Index Fund That Could Soar Up to 5,655%, According to Certain Wall Street Analysts",
-                "Url": "https://finance.yahoo.com/news/billionaires-selling-nvidia-stock-buying-090500461.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Should You Buy the Second-Highest Yielding Vanguard S&P 500 Sector ETF?",
-                "Url": "https://finance.yahoo.com/news/buy-second-highest-yielding-vanguard-085800864.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "2 Brilliant Stocks Could Join Apple, Microsoft, and Nvidia as Trillion-Dollar Companies by 2025",
-                "Url": "https://finance.yahoo.com/news/2-brilliant-stocks-could-join-084400306.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Every Chip Stock Investor Should Hold a Position in Intel, and We Were Just Reminded Why",
-                "Url": "https://finance.yahoo.com/news/every-chip-stock-investor-hold-083000744.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "This Billionaire Predicted the Nvidia Stock Rally. Now He's Making a Prediction Elsewhere With an Investment That's Already Jumped 13% in the Last Month.",
-                "Url": "https://finance.yahoo.com/news/billionaire-predicted-nvidia-stock-rally-081500156.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            }
-        ]
+        "Industry": "Drug Manufacturers - Specialty & Generic",
+        "Country": "Hong Kong",
+        "Market Cap": "246.93M",
+        "Price": "18.98",
+        "Change": "463.20%",
+        "Volume": "633,477",
+        "Articles": []
     },
     {
         "No.": "2",
-        "Ticker": "AAPL",
-        "Company": "SILO Pharma Inc",
+        "Ticker": "SLRX",
+        "Company": "Salarius Pharmaceuticals Inc",
         "Sector": "Healthcare",
         "Industry": "Biotechnology",
         "Country": "USA",
-        "Market Cap": "12.80M",
-        "Price": "3.47",
-        "Change": "54.22%",
-        "Volume": "105,079,871",
-        "Articles": [
-            {
-                "Website": "FinViz",
-                "Title": "Billionaire Warren Buffett Has $135 Billion Invested in Just 1 Artificial Intelligence (AI) Stock. Is It Time to Buy?",
-                "URL": "https://finance.yahoo.com/m/8a37b398-0f39-3241-a02a-dc588365cfcc/billionaire-warren-buffett.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "06:30PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Made by Google 2024: Pixel 9, Gemini, a new foldable and other things to expect from the event",
-                "URL": "https://finance.yahoo.com/m/8a5a6c5d-d05b-3cca-8359-ae1f8bb8621f/made-by-google-2024%3A-pixel-9%2C.html",
-                "Publisher": "(TechCrunch)",
-                "Time": "03:00PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Four Smartglasses patents from Meta cover Hot Mirror Optical Cavity and Infield Illumination, a Frame Tracking System & more",
-                "URL": "https://www.patentlyapple.com/2024/07/four-smartglasses-patents-from-meta-cover-hot-mirror-optical-cavity-and-infield-illumination-a-frame-tracking-system-more.html",
-                "Publisher": "(Patently Apple)",
-                "Time": "11:19AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "3 Healthcare Stocks to Buy Now: Q3 Edition",
-                "URL": "https://investorplace.com/2024/07/3-healthcare-stocks-to-buy-now-q3-edition/",
-                "Publisher": "(InvestorPlace)",
-                "Time": "10:00AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Chips and Taiwan Are a New Cloud for Tech Earnings",
-                "URL": "https://finance.yahoo.com/m/18402b37-4753-3f4d-944e-d76ee9ed8f21/chips-and-taiwan-are-a-new.html",
-                "Publisher": "(The Wall Street Journal)",
-                "Time": "09:30AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "This Hidden Gem Vanguard ETF Is Chock-Full of Magnificent Stocks. Here's Why It's a Buy Now.",
-                "URL": "https://finance.yahoo.com/m/12f33ad2-7def-30a8-b1cf-8de1ec3c8404/this-hidden-gem-vanguard-etf.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "05:30AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Apple Stock Soars to New Peak. Here's Why I'm Doubling Down.",
-                "URL": "https://finance.yahoo.com/m/53203754-9d79-37a2-b4e0-b32bb4b7ce2e/apple-stock-soars-to-new.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "05:05AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Street calls of the week: Upgrades for Apple and Shopify; downgrade for Doximity",
-                "URL": "https://finance.yahoo.com/news/street-calls-week-upgrades-apple-044550675.html",
-                "Publisher": "(Investing.com)",
-                "Time": "12:45AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "5 big analyst AI moves: Apple upgraded, QCOM cut to Hold amid lack of catalysts",
-                "URL": "https://finance.yahoo.com/news/5-big-analyst-ai-moves-042905129.html",
-                "Publisher": "(Investing.com)",
-                "Time": "12:29AM"
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Made by Google 2024: Pixel 9, Gemini, a new foldable and other things to expect from the event",
-                "Url": "https://finance.yahoo.com/news/made-google-2024-pixel-9-190000499.html",
-                "Publisher": "TechCrunch",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Chips and Taiwan Are a New Cloud for Tech Earnings",
-                "Url": "https://finance.yahoo.com/m/18402b37-4753-3f4d-944e-d76ee9ed8f21/chips-and-taiwan-are-a-new.html",
-                "Publisher": "The Wall Street Journal",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Possible Bearish Signals With Apple Insiders Disposing Stock",
-                "Url": "https://finance.yahoo.com/news/possible-bearish-signals-apple-insiders-120019065.html",
-                "Publisher": "Simply Wall St.",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "This Hidden Gem Vanguard ETF Is Chock-Full of Magnificent Stocks. Here's Why It's a Buy Now.",
-                "Url": "https://finance.yahoo.com/news/hidden-gem-vanguard-etf-chock-093000535.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Apple Stock Soars to New Peak. Here's Why I'm Doubling Down.",
-                "Url": "https://finance.yahoo.com/news/apple-stock-soars-peak-heres-090500429.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Street calls of the week: Upgrades for Apple and Shopify; downgrade for Doximity",
-                "Url": "https://finance.yahoo.com/news/street-calls-week-upgrades-apple-044550675.html",
-                "Publisher": "Investing.com",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "5 big analyst AI moves: Apple upgraded, QCOM cut to Hold amid lack of catalysts",
-                "Url": "https://finance.yahoo.com/news/5-big-analyst-ai-moves-042905129.html",
-                "Publisher": "Investing.com",
-                "Time": ""
-            }
-        ]
+        "Market Cap": "1.86M",
+        "Price": "3.10",
+        "Change": "100.97%",
+        "Volume": "56,696,412",
+        "Articles": []
     },
     {
         "No.": "3",
-        "Ticker": "GOOGL",
-        "Company": "SILO Pharma Inc",
-        "Sector": "Healthcare",
-        "Industry": "Biotechnology",
+        "Ticker": "CJET",
+        "Company": "Chijet Motor Company Inc",
+        "Sector": "Consumer Cyclical",
+        "Industry": "Auto Manufacturers",
+        "Country": "Cayman Islands",
+        "Market Cap": "32.75M",
+        "Price": "6.11",
+        "Change": "86.85%",
+        "Volume": "494,842"
+    },
+    {
+        "No.": "4",
+        "Ticker": "SPWR",
+        "Company": "Sunpower Corp",
+        "Sector": "Technology",
+        "Industry": "Solar",
         "Country": "USA",
-        "Market Cap": "12.80M",
-        "Price": "3.47",
-        "Change": "54.22%",
-        "Volume": "105,079,871",
+        "Market Cap": "190.40M",
+        "Price": "1.09",
+        "Change": "51.58%",
+        "Volume": "161,037,600",
         "Articles": [
             {
                 "Website": "FinViz",
-                "Title": "10 Best Undervalued Stocks to Buy According to Reddit",
-                "URL": "https://www.insidermonkey.com/blog/10-best-undervalued-stocks-to-buy-according-to-reddit-1320740/",
-                "Publisher": "(Insider Monkey)",
-                "Time": "06:06PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Made by Google 2024: Pixel 9, Gemini, a new foldable and other things to expect from the event",
-                "URL": "https://finance.yahoo.com/m/8a5a6c5d-d05b-3cca-8359-ae1f8bb8621f/made-by-google-2024%3A-pixel-9%2C.html",
-                "Publisher": "(TechCrunch)",
-                "Time": "03:00PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Joe Biden dropout fallout, inflation data, and the start of tech earnings: What to know this week",
-                "URL": "https://finance.yahoo.com/news/joe-biden-dropout-fallout-inflation-data-and-the-start-of-tech-earnings-what-to-know-this-week-181715078.html",
-                "Publisher": "(Yahoo Finance)",
-                "Time": "02:17PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Inflation and the start of tech earnings: What to know this week",
-                "URL": "https://finance.yahoo.com/news/inflation-and-the-start-of-tech-earnings-what-to-know-this-week-110011382.html",
-                "Publisher": "(Yahoo Finance)",
-                "Time": "02:17PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "3 IoT Stocks That Could Grow Your Wealth",
-                "URL": "https://investorplace.com/2024/07/3-iot-stocks-that-could-grow-your-wealth/",
-                "Publisher": "(InvestorPlace)",
-                "Time": "01:00PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Chips and Taiwan Are a New Cloud for Tech Earnings",
-                "URL": "https://finance.yahoo.com/m/18402b37-4753-3f4d-944e-d76ee9ed8f21/chips-and-taiwan-are-a-new.html",
-                "Publisher": "(The Wall Street Journal)",
-                "Time": "09:30AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Cathie Wood Was Wrong About Innovation: 3 Stocks to Invest In Instead",
-                "URL": "https://investorplace.com/2024/07/cathie-wood-was-wrong-about-innovation-3-stocks-to-invest-in-instead/",
-                "Publisher": "(InvestorPlace)",
-                "Time": "09:00AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "3 High-Growth SaaS Stocks to Watch in July",
-                "URL": "https://investorplace.com/2024/07/3-high-growth-saas-stocks-to-watch-in-july/",
-                "Publisher": "(InvestorPlace)",
-                "Time": "08:00AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "What To Expect in the Markets This Week",
-                "URL": "https://www.investopedia.com/what-to-expect-in-the-markets-this-week-8680211",
-                "Publisher": "(Investopedia)",
-                "Time": "07:00AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Google and Tesla earnings, Trump talks Bitcoin, Ether ETFs: What to watch in the markets this week",
-                "URL": "https://qz.com/google-tesla-gm-earnings-trump-bitcoin-ether-etfs-1851600058",
-                "Publisher": "(Quartz)",
-                "Time": "05:00AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "5 big analyst AI moves: Apple upgraded, QCOM cut to Hold amid lack of catalysts",
-                "URL": "https://finance.yahoo.com/news/5-big-analyst-ai-moves-042905129.html",
-                "Publisher": "(Investing.com)",
-                "Time": "12:29AM"
+                "Title": "SunPower Plunges After Halting Installs and Shipments",
+                "URL": "https://finance.yahoo.com/news/sunpower-plunges-halting-solar-installs-180816388.html",
+                "Publisher": "(Bloomberg)  +52.28%",
+                "Time": "10:12AM"
             },
             {
                 "Website": "Yahoo Finance",
-                "Title": "Made by Google 2024: Pixel 9, Gemini, a new foldable and other things to expect from the event",
-                "Url": "https://finance.yahoo.com/news/made-google-2024-pixel-9-190000499.html",
-                "Publisher": "TechCrunch",
+                "Title": "SunPower Plunges After Halting Installs and Shipments",
+                "Url": "https://finance.yahoo.com/news/sunpower-plunges-halting-solar-installs-180816388.html",
+                "Publisher": "Bloomberg",
                 "Time": ""
             },
             {
                 "Website": "Yahoo Finance",
-                "Title": "Joe Biden dropout fallout, inflation data, and the start of tech earnings: What to know this week",
-                "Url": "https://finance.yahoo.com/news/joe-biden-dropout-fallout-inflation-data-and-the-start-of-tech-earnings-what-to-know-this-week-181715078.html",
-                "Publisher": "Yahoo Finance",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Chips and Taiwan Are a New Cloud for Tech Earnings",
-                "Url": "https://finance.yahoo.com/m/18402b37-4753-3f4d-944e-d76ee9ed8f21/chips-and-taiwan-are-a-new.html",
-                "Publisher": "The Wall Street Journal",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "What To Expect in the Markets This Week",
-                "Url": "https://finance.yahoo.com/news/expect-markets-week-110000762.html",
-                "Publisher": "Investopedia",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "5 big analyst AI moves: Apple upgraded, QCOM cut to Hold amid lack of catalysts",
-                "Url": "https://finance.yahoo.com/news/5-big-analyst-ai-moves-042905129.html",
-                "Publisher": "Investing.com",
+                "Title": "SunPower\u2019s Meltdown Could Have Wide Impact",
+                "Url": "https://finance.yahoo.com/m/06cf71c3-466a-3ee3-a3b8-cfc1e702bd36/sunpower%E2%80%99s-meltdown-could.html",
+                "Publisher": "Barrons.com",
                 "Time": ""
             }
         ]
     },
     {
-        "No.": "4",
-        "Ticker": "AMZN",
-        "Company": "SILO Pharma Inc",
-        "Sector": "Healthcare",
-        "Industry": "Biotechnology",
+        "No.": "5",
+        "Ticker": "FEIM",
+        "Company": "Frequency Electronics, Inc.",
+        "Sector": "Technology",
+        "Industry": "Communication Equipment",
         "Country": "USA",
-        "Market Cap": "12.80M",
-        "Price": "3.47",
-        "Change": "54.22%",
-        "Volume": "105,079,871",
+        "Market Cap": "127.74M",
+        "Price": "13.46",
+        "Change": "33.27%",
+        "Volume": "1,734,209",
         "Articles": [
             {
-                "Website": "FinViz",
-                "Title": "10 Best Undervalued Stocks to Buy According to Reddit",
-                "URL": "https://www.insidermonkey.com/blog/10-best-undervalued-stocks-to-buy-according-to-reddit-1320740/",
-                "Publisher": "(Insider Monkey)",
-                "Time": "06:06PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Up 145% So Far This Year, Here's What It Will Take for Nvidia Stock to Drop, and Why I Think It Could Happen Sooner Rather Than Later",
-                "URL": "https://finance.yahoo.com/m/e64cd102-59cf-3c01-a652-dcf6c73c57ab/up-145%25-so-far-this-year%2C.html",
-                "Publisher": "(Motley Fool)",
-                "Time": "06:00PM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "Chips and Taiwan Are a New Cloud for Tech Earnings",
-                "URL": "https://finance.yahoo.com/m/18402b37-4753-3f4d-944e-d76ee9ed8f21/chips-and-taiwan-are-a-new.html",
-                "Publisher": "(The Wall Street Journal)",
-                "Time": "09:30AM"
-            },
-            {
-                "Website": "FinViz",
-                "Title": "It smacks of a potential grand plan: How Royal Mail is poised to create the Amazon of Europe",
-                "URL": "https://finance.yahoo.com/m/86187f4c-d135-37cc-84cc-5495f5ae9cf2/%E2%80%98it-smacks-of-a-potential.html",
-                "Publisher": "(The Telegraph)",
-                "Time": "09:05AM"
-            },
-            {
                 "Website": "Yahoo Finance",
-                "Title": "Chips and Taiwan Are a New Cloud for Tech Earnings",
-                "Url": "https://finance.yahoo.com/m/18402b37-4753-3f4d-944e-d76ee9ed8f21/chips-and-taiwan-are-a-new.html",
-                "Publisher": "The Wall Street Journal",
+                "Title": "Frequency Electronics, Inc. Announces Fourth Quarter and Full Fiscal Year 2024 Financial Results",
+                "Url": "https://finance.yahoo.com/news/frequency-electronics-inc-announces-fourth-201800201.html",
+                "Publisher": "GlobeNewswire",
                 "Time": ""
             },
             {
                 "Website": "Yahoo Finance",
-                "Title": "\u2018It smacks of a potential grand plan\u2019: How Royal Mail is poised to create the Amazon of Europe",
-                "Url": "https://finance.yahoo.com/news/smacks-potential-grand-plan-royal-130500771.html",
-                "Publisher": "The Telegraph",
+                "Title": "Frequency Electronics, Inc. Declares Special Cash Dividend of $1.00 Per Share",
+                "Url": "https://finance.yahoo.com/news/frequency-electronics-inc-declares-special-201600076.html",
+                "Publisher": "GlobeNewswire",
                 "Time": ""
             }
         ]
+    },
+    {
+        "No.": "6",
+        "Ticker": "HOVR",
+        "Company": "New Horizon Aircraft Ltd",
+        "Sector": "Industrials",
+        "Industry": "Aerospace & Defense",
+        "Country": "Canada",
+        "Market Cap": "13.33M",
+        "Price": "0.72",
+        "Change": "33.14%",
+        "Volume": "4,860,182",
+        "Articles": []
+    },
+    {
+        "No.": "7",
+        "Ticker": "ZAPP",
+        "Company": "Zapp Electric Vehicles Group Ltd",
+        "Sector": "Consumer Cyclical",
+        "Industry": "Auto Manufacturers",
+        "Country": "United Kingdom",
+        "Market Cap": "36.62M",
+        "Price": "11.70",
+        "Change": "32.79%",
+        "Volume": "2,306,073",
+        "Articles": []
+    },
+    {
+        "No.": "8",
+        "Ticker": "ICLK",
+        "Company": "iClick Interactive Asia Group Ltd ADR",
+        "Sector": "Communication Services",
+        "Industry": "Advertising Agencies",
+        "Country": "Hong Kong",
+        "Market Cap": "19.58M",
+        "Price": "2.20",
+        "Change": "31.74%",
+        "Volume": "422,619",
+        "Articles": []
+    },
+    {
+        "No.": "9",
+        "Ticker": "KNSA",
+        "Company": "Kiniksa Pharmaceuticals International Plc.",
+        "Sector": "Healthcare",
+        "Industry": "Biotechnology",
+        "Country": "USA",
+        "Market Cap": "1.95B",
+        "Price": "27.45",
+        "Change": "28.33%",
+        "Volume": "2,824,671",
+        "Articles": [
+            {
+                "Website": "FinViz",
+                "Title": "Kiniksa Pharmaceuticals, Ltd. (KNSA) Reports Q2 Loss, Tops Revenue Estimates",
+                "URL": "https://finance.yahoo.com/news/kiniksa-pharmaceuticals-ltd-knsa-reports-123503354.html",
+                "Publisher": "(Zacks)  +28.28%",
+                "Time": "08:35AM"
+            },
+            {
+                "Website": "FinViz",
+                "Title": "Kiniksa Pharmaceuticals Reports Second Quarter 2024 Financial Results and Recent Portfolio Execution",
+                "URL": "https://www.globenewswire.com/news-release/2024/07/23/2917113/0/en/Kiniksa-Pharmaceuticals-Reports-Second-Quarter-2024-Financial-Results-and-Recent-Portfolio-Execution.html",
+                "Publisher": "(GlobeNewswire)",
+                "Time": "07:30AM"
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Kiniksa Pharmaceuticals, Ltd. (KNSA) Reports Q2 Loss, Tops Revenue Estimates",
+                "Url": "https://finance.yahoo.com/news/kiniksa-pharmaceuticals-ltd-knsa-reports-123503354.html",
+                "Publisher": "Zacks",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Kiniksa Pharmaceuticals Reports Second Quarter 2024 Financial Results and Recent Portfolio Execution",
+                "Url": "https://finance.yahoo.com/news/kiniksa-pharmaceuticals-reports-second-quarter-113000506.html",
+                "Publisher": "GlobeNewswire",
+                "Time": ""
+            }
+        ]
+    },
+    {
+        "No.": "10",
+        "Ticker": "MLSS",
+        "Company": "Milestone Scientific Inc.",
+        "Sector": "Healthcare",
+        "Industry": "Medical Instruments & Supplies",
+        "Country": "USA",
+        "Market Cap": "82.64M",
+        "Price": "1.07",
+        "Change": "23.27%",
+        "Volume": "807,346",
+        "Articles": [
+            {
+                "Website": "FinViz",
+                "Title": "Milestone Scientific Announces Medicare Price Assignment for the CompuFlo  Epidural System in Texas, Pennsylvania, New Jersey, Maryland, Colorado, Oklahoma, Louisiana, Arkansas, Mississippi, New Mexico, District of Columbia, and Delaware",
+                "URL": "https://www.globenewswire.com/news-release/2024/07/23/2917208/15852/en/Milestone-Scientific-Announces-Medicare-Price-Assignment-for-the-CompuFlo-Epidural-System-in-Texas-Pennsylvania-New-Jersey-Maryland-Colorado-Oklahoma-Louisiana-Arkansas-Mississippi.html",
+                "Publisher": "(GlobeNewswire)  +21.54%",
+                "Time": "08:30AM"
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Milestone Scientific Announces Medicare Price Assignment for the CompuFlo\u00ae Epidural System in Texas, Pennsylvania, New Jersey, Maryland, Colorado, Oklahoma, Louisiana, Arkansas, Mississippi, New Mexico, District of Columbia, and Delaware",
+                "Url": "https://finance.yahoo.com/news/milestone-scientific-announces-medicare-price-123000439.html",
+                "Publisher": "GlobeNewswire",
+                "Time": ""
+            }
+        ]
+    },
+    {
+        "No.": "11",
+        "Ticker": "LITM",
+        "Company": "Snow Lake Resources Ltd",
+        "Sector": "Basic Materials",
+        "Industry": "Other Industrial Metals & Mining",
+        "Country": "Canada",
+        "Market Cap": "19.31M",
+        "Price": "0.95",
+        "Change": "21.91%",
+        "Volume": "596,772",
+        "Articles": []
+    },
+    {
+        "No.": "12",
+        "Ticker": "DXF",
+        "Company": "Dunxin Financial Holdings Limited. ADR",
+        "Sector": "Financial",
+        "Industry": "Credit Services",
+        "Country": "China",
+        "Market Cap": "4.25M",
+        "Price": "0.19",
+        "Change": "19.51%",
+        "Volume": "4,546,551",
+        "Articles": []
+    },
+    {
+        "No.": "13",
+        "Ticker": "GSUN",
+        "Company": "Golden Sun Health Technology Group Ltd",
+        "Sector": "Consumer Defensive",
+        "Industry": "Education & Training Services",
+        "Country": "China",
+        "Market Cap": "33.80M",
+        "Price": "6.10",
+        "Change": "18.93%",
+        "Volume": "499,940",
+        "Articles": []
+    },
+    {
+        "No.": "14",
+        "Ticker": "FANH",
+        "Company": "Fanhua Inc ADR",
+        "Sector": "Financial",
+        "Industry": "Insurance Brokers",
+        "Country": "China",
+        "Market Cap": "99.24M",
+        "Price": "1.75",
+        "Change": "18.24%",
+        "Volume": "1,170,888",
+        "Articles": [
+            {
+                "Website": "FinViz",
+                "Title": "Fanhua Announces Completion of Share Option Cash Exercises by Key Employees",
+                "URL": "https://www.globenewswire.com/news-release/2024/07/23/2917230/0/en/Fanhua-Announces-Completion-of-Share-Option-Cash-Exercises-by-Key-Employees.html",
+                "Publisher": "(GlobeNewswire)  +18.92%",
+                "Time": "08:43AM"
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Fanhua Announces Completion of Share Option Cash Exercises by Key Employees",
+                "Url": "https://finance.yahoo.com/news/fanhua-announces-completion-share-option-124300642.html",
+                "Publisher": "GlobeNewswire",
+                "Time": ""
+            }
+        ]
+    },
+    {
+        "No.": "15",
+        "Ticker": "RCAT",
+        "Company": "Red Cat Holdings Inc",
+        "Sector": "Technology",
+        "Industry": "Computer Hardware",
+        "Country": "USA",
+        "Market Cap": "161.19M",
+        "Price": "2.17",
+        "Change": "17.93%",
+        "Volume": "1,490,150",
+        "Articles": []
+    },
+    {
+        "No.": "16",
+        "Ticker": "FATE",
+        "Company": "Fate Therapeutics Inc",
+        "Sector": "Healthcare",
+        "Industry": "Biotechnology",
+        "Country": "USA",
+        "Market Cap": "605.58M",
+        "Price": "5.32",
+        "Change": "16.67%",
+        "Volume": "1,552,965",
+        "Articles": []
+    },
+    {
+        "No.": "17",
+        "Ticker": "LPSN",
+        "Company": "Liveperson Inc",
+        "Sector": "Technology",
+        "Industry": "Software - Application",
+        "Country": "USA",
+        "Market Cap": "132.91M",
+        "Price": "1.50",
+        "Change": "16.27%",
+        "Volume": "7,526,429",
+        "Articles": []
+    },
+    {
+        "No.": "18",
+        "Ticker": "PCT",
+        "Company": "PureCycle Technologies Inc",
+        "Sector": "Industrials",
+        "Industry": "Pollution & Treatment Controls",
+        "Country": "USA",
+        "Market Cap": "1.17B",
+        "Price": "7.14",
+        "Change": "15.64%",
+        "Volume": "4,479,455",
+        "Articles": []
     }
 ]
