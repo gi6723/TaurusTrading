@@ -16,23 +16,20 @@ import requests
 import whisper
 import certifi
 
-# Load environment variables from the .env file
-load_dotenv()
-
-class TradingViewArticleScraper:
-    def __init__(self):
-        options = FirefoxOptions()
-        # options.add_argument("--headless")
-        self.driver = webdriver.Firefox(options=options)
+class Authenticator:
+    def __init__(self, driver):
+        self.driver = driver
         self.user_agent = UserAgent()
         os.environ['SSL_CERT_FILE'] = certifi.where()
 
-    def grab_tickers(self):
-        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as f:
-            data = json.load(f)
-            tickers = [item["Ticker"] for item in data]
-        f.close()
-        return tickers
+    def scroll_and_click(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        try:
+            element.click()
+        except ElementClickInterceptedException:
+            print("Element click intercepted, trying again")
+            time.sleep(2)
+            element.click()
 
     def add_input_for_login(self, by: By, value: str, text: str):
         try:
@@ -51,7 +48,7 @@ class TradingViewArticleScraper:
         except TimeoutException:
             print("Login button not found")
             return
-    
+
     def signin_by_email(self):
         try:
             WebDriverWait(self.driver, 10).until(
@@ -112,7 +109,7 @@ class TradingViewArticleScraper:
             print("Audio challenge button not found or could not be clicked")
         finally:
             self.driver.switch_to.default_content()
-    
+
     def solve_audio_challenge(self):
         try:
             self.driver.switch_to.default_content()
@@ -128,7 +125,7 @@ class TradingViewArticleScraper:
                     audio_response_field.send_keys(transcription)
                     verify_button = self.driver.find_element(By.ID, "recaptcha-verify-button")
                     self.scroll_and_click(verify_button)
-                    print("submitted transcription")
+                    print("Submitted transcription")
 
                     time.sleep(2)
 
@@ -172,15 +169,6 @@ class TradingViewArticleScraper:
         finally:
             self.driver.switch_to.default_content()
 
-    def scroll_and_click(self, element):
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
-        try:
-            element.click()
-        except ElementClickInterceptedException:
-            print("Element click intercepted, trying again")
-            time.sleep(2)
-            element.click()
-
     def login(self):
         try:
             self.driver.get("https://www.tradingview.com/accounts/signin/")
@@ -200,102 +188,4 @@ class TradingViewArticleScraper:
                 print(f"No Recaptcha appeared or error occurred: {e}")
         except Exception as e:
             print(f"An error occurred during login: {e}")
-    
-    def ticker_search(self, ticker):
-        try:
-            WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.CLASS_NAME, "tv-header-search-container"))
-            ).click()
-
-            search_box = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.CLASS_NAME, "input-KLRTYDjH"))
-            )
-            search_box.clear()
-            search_box.send_keys(ticker)
-            search_box.send_keys(Keys.RETURN)
-
-            self.switch_to_news_tab()
-
-        except TimeoutException:
-            print("Search box not found or not clickable")
-        except NoSuchElementException:
-            print("Search bar element could not be found")
-        except Exception as e:
-            print(f"An unexpected error occurred in ticker_search: {e}")
-
-    def switch_to_news_tab(self):
-        try:
-            news_tab = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'js-category-tab') and contains(@href, '/news/')]"))
-            )
-            news_tab.click()
-    
-        except TimeoutException:
-            print("News tab is not clickable or could not be found")
-       
-    def fetch_articles_and_text(self, tickers):
-        for ticker in tickers:
-            print(f"Searching for ticker: {ticker}")
-            self.ticker_search(ticker)
-            print(f"Finished searching for ticker: {ticker}, now looking for articles")
-            try:
-                container = WebDriverWait(self.driver, 10).until(
-                    EC.presence_of_element_located((By.CLASS_NAME, "list-iTt_Zp4a"))
-                )
-                print("Found article container")
-
-                self.driver.execute_script("arguments[0].scrollIntoView(true);", container)
-                time.sleep(2)
-
-                for row in container.find_elements(By.XPATH, ".//a[contains(@class, 'card-HY0D0owe')]"):
-                    try:
-                        time_element = row.find_element(By.CLASS_NAME, "apply-common-tooltip")
-                        time_title = time_element.get_attribute("title")
-
-                        time_posted_naive = datetime.strptime(time_title, '%b %d, %Y, %H:%M %Z')
-                        tz = pytz.timezone('US/Central') 
-                        time_posted = tz.localize(time_posted_naive)
-
-                        now = datetime.now(tz)
-                        time_diff = now - time_posted
-                        time_diff_minutes = time_diff.total_seconds() / 60
-                        print(f"Time difference: {time_diff_minutes} minutes ago")
-
-                        if time_diff_minutes > 24 * 60:
-                            break
-                    except Exception as e:
-                        print(f"Could not find time element in shadow DOM: {e}")
-            except Exception as e:
-                print(f"Could not find container for {ticker}: {e}")
-
-
-        
-    def close(self):
-        self.driver.quit()
-
-    def process_ticker(self):
-        self.login()
-        tickers = self.grab_tickers()
-        self.fetch_articles_and_text(tickers)
-        #self.driver.quit()
-
-if __name__ == "__main__":
-    scraper = TradingViewArticleScraper()
-    scraper.process_ticker()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
