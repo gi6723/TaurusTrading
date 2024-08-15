@@ -16,6 +16,7 @@ import requests
 import whisper
 import certifi
 
+# Load environment variables from the .env file
 load_dotenv()
 
 class TradingViewArticleScraper:
@@ -26,6 +27,7 @@ class TradingViewArticleScraper:
         with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as f:
             data = json.load(f)
             tickers = [item["Ticker"] for item in data]
+        f.close()
         return tickers
 
     def ticker_search(self, ticker):
@@ -56,51 +58,25 @@ class TradingViewArticleScraper:
                 EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'js-category-tab') and contains(@href, '/news/')]"))
             )
             news_tab.click()
+    
         except TimeoutException:
             print("News tab is not clickable or could not be found")
 
-    def extract_ticker_from_logo(self, row):
-        ticker_images = row.find_elements(By.XPATH, ".//ul[contains(@class, 'stack-L2E26Swf')]/li/img")
-        tickers = [img.get_attribute('src').split('/')[-1].split('.')[0].upper() for img in ticker_images]
-        return tickers
+    def extract_row_data(self, row):
+        row_data = []
+        website = "Trading View"
+        article_title = row.find_element(By.CLASS_NAME, ".//a[contains(@class, 'title-HY0D0owe title-DmjQR0Aa')]").get_attribute("innerHTML").txt
+        publisher = row.find_element(By.CLASS_NAME, "provider-HY0D0owe provider-TUPxzdRV").get_attribute("innerHTML").txt
+        row_data.append({
+        "Website": website,
+        "Title": article_title,
+        "Url": url,
+        "Publisher": publisher,
+        "Time": ""
+        })
 
-    def extract_row_data(self, row, time):
-        try:
-            website = "Trading View"
-            
-            # Extract the article title
-            article_title = row.find_element(By.XPATH, ".//div[contains(@class, 'apply-overflow-tooltip') and contains(@class, 'title-HY0D0owe')]").text
-            
-            # Extract the publisher
-            publisher = row.find_element(By.XPATH, ".//span[contains(@class, 'provider-HY0D0owe')]").text
-            
-            # Extract the URL from the <a> tag
-            url = row.get_attribute("href") #might need to modify this to add the base URL
-            
-            # Extract the tickers mentioned
-            tickers_mentioned = self.extract_ticker_from_logo(row)
-            
-            # Extract time
-            time_posted = time
-            
-            row_data = {
-                "Website": website,
-                "Title": article_title,
-                "Url": full_url,
-                "Publisher": publisher,
-                "Tickers Mentioned": tickers_mentioned,
-                "Time": time_posted
-            }
-
-            print(row_data)
-            return row_data
-
-        except NoSuchElementException as e:
-            print(f"Element not found during row data extraction: {e}")
-            return None
-        except Exception as e:
-            print(f"Error extracting row data: {e}")
-            return None
+        print(row_data)
+        return row_data
 
     def fetch_articles_and_text(self, tickers):
         for ticker in tickers:
@@ -131,7 +107,7 @@ class TradingViewArticleScraper:
                         print(f"Time difference: {time_diff_minutes} minutes ago")
 
                         if time_diff_minutes < 24 * 60:
-                            self.extract_row_data(row, time_posted)
+                            self.extract_row_data(row)
 
                         else:
                             break
@@ -139,25 +115,3 @@ class TradingViewArticleScraper:
                         print(f"Error: {e}")
             except Exception as e:
                 print(f"Could not find container for {ticker}: {e}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

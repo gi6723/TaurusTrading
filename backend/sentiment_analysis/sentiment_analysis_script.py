@@ -7,6 +7,12 @@ class SentimentAnalyzer:
         self.model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
         self.nlp = pipeline("text-classification", model=self.model, tokenizer=self.tokenizer)
 
+    def grab_artilce_data(self):
+        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as f:
+            data = json.load(f)
+        return data
+        f.close()
+
     def sentiment_analysis(self, text):
         text = text[:512]  # Truncate text to the model's maximum sequence length
         results = self.nlp(text)
@@ -19,21 +25,21 @@ class SentimentAnalyzer:
         sentiment_scores = []
         for article in article_data:
             headline = article["title"]
-            article_text = article["article_text"]
-            date_published = article["date_published"]
             publisher = article["publisher"]
             
             headline_result = self.sentiment_analysis(headline)
-            text_result = self.sentiment_analysis(article_text)
             
             sentiment_scores.append({
                 "headline": headline,
                 "headline_score": headline_result["score"],
                 "headline_label": headline_result["label"],
                 "article_text": article_text,
-                "text_score": text_result["score"],
-                "text_label": text_result["label"],
-                "date_published": date_published,
                 "publisher": publisher
             })
         return sentiment_scores
+
+if __name__ == "__main__":
+    analyzer = SentimentAnalyzer()
+    article_data = analyzer.grab_artilce_data()
+    sentiment_scores = analyzer.analyze_sentiment(article_data)
+    print(sentiment_scores)

@@ -9,6 +9,85 @@
         "Market Cap": "246.93M",
         "Price": "18.98",
         "Change": "463.20%",
-        "Volume": "633,477"
+        "Volume": "633,477",
+        "Articles": [
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Chip stocks will regain momentum over AI demand: Analyst",
+                "Url": "https://finance.yahoo.com/video/chip-stocks-regain-momentum-over-141048568.html",
+                "Publisher": "Yahoo Finance Video",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Magnificent Seven Stocks: Nvidia Stock Rallies; Tesla Slides",
+                "Url": "https://finance.yahoo.com/m/4205eaa9-f620-3a0b-a81a-0e82c7c9fd0b/magnificent-seven-stocks-.html",
+                "Publisher": "Investor's Business Daily",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "3 Crypto Stocks to Watch as Bitcoin Stages a Comeback",
+                "Url": "https://finance.yahoo.com/news/3-crypto-stocks-watch-bitcoin-144900723.html",
+                "Publisher": "Zacks",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Billionaire Paul Singer Says AI Stocks Like Meta Platforms (META) are in \u2018Bubble Land\u2019",
+                "Url": "https://finance.yahoo.com/news/billionaire-paul-singer-says-ai-135822738.html",
+                "Publisher": "Insider Monkey",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Forget Nvidia: 2 Artificial Intelligence (AI) Stocks to Buy After the Market Sell-Off",
+                "Url": "https://finance.yahoo.com/news/forget-nvidia-2-artificial-intelligence-135300739.html",
+                "Publisher": "Motley Fool",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Microsoft, Nvidia Shunned. Meet The New Big 'Daddy' On Wall Street.",
+                "Url": "https://finance.yahoo.com/m/824eda6f-8e2a-3319-afa2-ac4c3a7e7a80/microsoft-nvidia-shunned-.html",
+                "Publisher": "Investor's Business Daily",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "AI Stocks: Tech Giants, Cloud Titans Face 'Show Me' Moment",
+                "Url": "https://finance.yahoo.com/m/684c930d-1475-3adc-b013-ae604c056ebc/ai-stocks-tech-giants-cloud.html",
+                "Publisher": "Investor's Business Daily",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Is Qualcomm a Millionaire-Maker Stock?",
+                "Url": "https://finance.yahoo.com/news/qualcomm-millionaire-maker-stock-123000832.html",
+                "Publisher": "Motley Fool",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Dow Jones Futures Rise, 10 Stocks Near Buy Points With Rally Setting Up; Musk-Trump On Tap",
+                "Url": "https://finance.yahoo.com/m/81719280-8df1-3521-bb9c-c3270a6c7c44/dow-jones-futures-rise-10.html",
+                "Publisher": "Investor's Business Daily",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "Want to Get Richer? 2 Best Stocks to Buy Now and Hold Forever",
+                "Url": "https://finance.yahoo.com/news/want-richer-2-best-stocks-110000545.html",
+                "Publisher": "Motley Fool",
+                "Time": ""
+            },
+            {
+                "Website": "Yahoo Finance",
+                "Title": "NVIDIA Corporation (NVDA): Why Are Hedge Funds Bullish on This Self Driving Car Stock Now?",
+                "Url": "https://finance.yahoo.com/news/nvidia-corporation-nvda-why-hedge-105442988.html",
+                "Publisher": "Insider Monkey",
+                "Time": ""
+            }
+        ]
     }
 ]
