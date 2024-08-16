@@ -15,12 +15,16 @@ from fake_useragent import UserAgent
 import requests
 import whisper
 import certifi
+from sent_analysis import TradingViewSentimentAnalysis
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 
 load_dotenv()
 
 class TradingViewArticleScraper:
     def __init__(self, driver):
         self.driver = driver
+        self.sentiment_analyzer = TradingViewSentimentAnalysis()
 
     def grab_tickers(self):
         with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as f:
@@ -86,11 +90,16 @@ class TradingViewArticleScraper:
             row_data = {
                 "Website": website,
                 "Title": article_title,
-                "Url": full_url,
+                "Url": url,
                 "Publisher": publisher,
                 "Tickers Mentioned": tickers_mentioned,
                 "Time": time_posted
             }
+
+            title_sentiment = self.sentiment_analyzer.gpt_title_relevance(row_data)
+            row_data["Title Sentiment"] = title_sentiment
+
+            self.append_to_json(row_data)
 
             print(row_data)
             return row_data
@@ -101,6 +110,27 @@ class TradingViewArticleScraper:
         except Exception as e:
             print(f"Error extracting row data: {e}")
             return None
+
+    def append_to_json(self, row_data):
+        # Load the existing data from the JSON file
+        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as f:
+            data = json.load(f)
+
+        # Find the correct ticker and add the article data
+        for ticker_data in data:
+            if ticker_data["Ticker"] == row_data["Tickers Mentioned"][0]:  # Assuming the first ticker in the list
+                if "Articles" not in ticker_data:
+                    ticker_data["Articles"] = []
+                if "TradingView" not in ticker_data["Articles"]:
+                    ticker_data["Articles"].append({"TradingView": []})
+
+                # Append the row data to the TradingView articles
+                ticker_data["Articles"][0]["TradingView"].append(row_data)
+                break
+
+        # Save the updated data back to the JSON file
+        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "w") as f:
+            json.dump(data, f, indent=4)
 
     def fetch_articles_and_text(self, tickers):
         for ticker in tickers:
@@ -131,7 +161,18 @@ class TradingViewArticleScraper:
                         print(f"Time difference: {time_diff_minutes} minutes ago")
 
                         if time_diff_minutes < 24 * 60:
-                            self.extract_row_data(row, time_posted)
+                            data = self.extract_row_data(row, time_posted)
+
+                            if "relevant" in data["Title Sentiment"].lower():
+                                article_text = self.fetch_text(data["Url"])
+                                gpt_sentiment = self.sentiment_analyzer.gpt_article_sentiment(article_text)
+                                finbert_sentiment = self.sentiment_analyzer.finbert_article_sentiment(article_text)
+                                
+                                # Append the additional sentiment analysis to the JSON
+                                data["Article Text"] = article_text
+                                data["GPT Text Sentiment"] = gpt_sentiment
+                                data["FinBERT Text Sentiment"] = finbert_sentiment
+                                self.append_to_json(data)
 
                         else:
                             break
@@ -139,6 +180,40 @@ class TradingViewArticleScraper:
                         print(f"Error: {e}")
             except Exception as e:
                 print(f"Could not find container for {ticker}: {e}")
+    
+    def fetch_text(self, url):
+        try:
+            # Open a new tab and navigate to the URL
+            self.driver.execute_script("window.open('');")
+            self.driver.switch_to.window(self.driver.window_handles[-1])
+            self.driver.get(url)
+            
+            # Wait for the article content to be loaded
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "body-KX2tCBZq"))
+            )
+            
+            # Find all paragraph elements within the article content
+            paragraphs = self.driver.find_elements(By.XPATH, "//div[contains(@class, 'body-KX2tCBZq body-pIO_GYwT content-pIO_GYwT')]//p")
+            
+            # Combine all the paragraph texts into one blob
+            article_text = " ".join([p.text for p in paragraphs])
+            
+            # Close the new tab
+            self.driver.close()
+            
+            # Switch back to the original tab
+            self.driver.switch_to.window(self.driver.window_handles[0])
+            
+            return article_text
+        
+        except Exception as e:
+            print(f"An error occurred while fetching article text: {e}")
+            self.driver.close()  # Ensure the tab is closed if there's an error
+            self.driver.switch_to.window(self.driver.window_handles[0])
+            return ""
+
+
 
 
 
