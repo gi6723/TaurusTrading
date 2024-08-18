@@ -16,6 +16,7 @@ import requests
 import whisper
 import certifi
 from sent_analysis import TradingViewSentimentAnalysis
+from data_handler import DataHandler
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
@@ -25,12 +26,10 @@ class TradingViewArticleScraper:
     def __init__(self, driver):
         self.driver = driver
         self.sentiment_analyzer = TradingViewSentimentAnalysis()
+        self.data_handler = DataHandler("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json")
 
     def grab_tickers(self):
-        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as f:
-            data = json.load(f)
-            tickers = [item["Ticker"] for item in data]
-        return tickers
+        return self.data_handler.get_tickers()
 
     def ticker_search(self, ticker):
         try:
@@ -68,19 +67,14 @@ class TradingViewArticleScraper:
         tickers = [img.get_attribute('src').split('/')[-1].split('.')[0].upper() for img in ticker_images]
         return tickers
 
-    def extract_row_data(self, row, time_diff_minutes, ticker):
+    def extract_row_data(self, row, time_diff_minutes):
         try:
             website = "Trading View"
-            
             article_title = row.find_element(By.XPATH, ".//div[contains(@class, 'apply-overflow-tooltip') and contains(@class, 'title-HY0D0owe')]").text
-            
             publisher = row.find_element(By.XPATH, ".//span[contains(@class, 'provider-HY0D0owe')]").text
-            
-            url = row.get_attribute("href") #might need to modify this to add the base URL
-            
+            url = row.get_attribute("href")
             tickers_mentioned = self.extract_ticker_from_logo(row)
-            
-            time_posted_str = f"{time_diff_minutes:.2f} minutes ago"  # Use time difference as the time
+            time_posted_str = f"{time_diff_minutes:.2f} minutes ago"
             
             row_data = {
                 "Website": website,
@@ -91,15 +85,7 @@ class TradingViewArticleScraper:
                 "Time": time_posted_str
             }
 
-            title_sentiment = self.sentiment_analyzer.gpt_title_relevance(article_title, ticker)
-            row_data["Title Sentiment"] = {
-                "decision": title_sentiment.decision,
-                "reasoning": title_sentiment.reasoning
-            }
-
-            self.append_to_json(row_data, ticker)
-
-            print(row_data)
+            # Print the extracted row data            
             return row_data
 
         except NoSuchElementException as e:
@@ -109,37 +95,13 @@ class TradingViewArticleScraper:
             print(f"Error extracting row data: {e}")
             return None
 
-    def append_to_json(self, row_data, ticker):
-        # Load the existing data from the JSON file
-        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as f:
-            data = json.load(f)
-
-        # Find the correct ticker and add the article data
-        for ticker_data in data:
-            if ticker_data["Ticker"].lower() == ticker.lower():  # Match with the passed-in ticker
-                if "Articles" not in ticker_data:
-                    ticker_data["Articles"] = []
-                if "TradingView" not in ticker_data["Articles"]:
-                    ticker_data["Articles"].append({"TradingView": []})
-
-                # Append the row data to the TradingView articles
-                ticker_data["Articles"][0]["TradingView"].append(row_data)
-                break
-
-        # Save the updated data back to the JSON file
-        with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "w") as f:
-            json.dump(data, f, indent=4)
-
     def fetch_articles_and_text(self, tickers):
         for ticker in tickers:
-            print(f"Searching for ticker: {ticker}")
             self.ticker_search(ticker)
-            print(f"Finished searching for ticker: {ticker}, now looking for articles")
             try:
                 container = WebDriverWait(self.driver, 10).until(
                     EC.presence_of_element_located((By.CLASS_NAME, "list-iTt_Zp4a"))
                 )
-                print("Found article container")
 
                 self.driver.execute_script("arguments[0].scrollIntoView(true);", container)
                 time.sleep(2)
@@ -156,23 +118,27 @@ class TradingViewArticleScraper:
                         now = datetime.now(tz)
                         time_diff = now - time_posted
                         time_diff_minutes = time_diff.total_seconds() / 60
-                        print(f"Time difference: {time_diff_minutes} minutes ago")
 
                         if time_diff_minutes < 48 * 60:  # temporarily changed to 48 hours for testing
-                            data = self.extract_row_data(row, time_diff_minutes, ticker)
+                            data = self.extract_row_data(row, time_diff_minutes)
 
-                            if data and "relevant" in data["Title Sentiment"]["decision"].lower():
-                                article_text = self.fetch_text(data["Url"])
-                                gpt_sentiment = self.sentiment_analyzer.gpt_article_sentiment(article_text, ticker)
-                                finbert_sentiment = self.sentiment_analyzer.finbert_article_sentiment(article_text)
+                            if data:
+                                title_sentiment = self.sentiment_analyzer.gpt_title_relevance(data["Title"], ticker)
+                                
+                                if "relevant" in title_sentiment["decision"].lower():
+                                    article_text = self.fetch_text(data["Url"])
+                                    gpt_sentiment = self.sentiment_analyzer.gpt_article_sentiment(article_text, ticker)
+                                    finbert_sentiment = self.sentiment_analyzer.finbert_article_sentiment(article_text)
 
-                                # Append the additional sentiment analysis to the JSON
-                                data["Article Text"] = article_text
-                                data["GPT Text Sentiment"] = gpt_sentiment
-                                data["FinBERT Text Sentiment"] = finbert_sentiment
-                                self.append_to_json(data, ticker)
-                            else:
-                                print(f"No relevant title sentiment found for ticker {ticker}")
+                                    # Append the additional sentiment analysis to the data before saving
+                                    data["Title Sentiment"] = title_sentiment
+                                    data["Article Sentiment"] = gpt_sentiment
+                                    data["FinBERT Sentiment"] = finbert_sentiment
+                                    data["Article Text"] = article_text
+
+                                    self.data_handler.append_article_data(data, ticker)
+                                else:
+                                    print(f"No relevant title sentiment found for ticker {ticker}")
 
                         else:
                             print(f"Article too old: {time_diff_minutes} minutes ago")
@@ -181,7 +147,7 @@ class TradingViewArticleScraper:
                         print(f"Error processing row for ticker {ticker}: {e}")
             except Exception as e:
                 print(f"Could not find container for {ticker}: {e}")
-    
+
     def fetch_text(self, url):
         try:
             # Open a new tab and navigate to the URL
@@ -208,6 +174,8 @@ class TradingViewArticleScraper:
             self.driver.close()  # Ensure the tab is closed if there's an error
             self.driver.switch_to.window(self.driver.window_handles[0])
             return ""
+
+
 
 
 

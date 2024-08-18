@@ -30,4 +30,5 @@ class TradingManager:
 if __name__ == "__main__":
     manager = TradingManager()
     manager.run()
-    #manager.cleanup()
+    manager.cleanup()
+    
