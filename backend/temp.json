@@ -1,7 +1,7 @@
 [
     {
         "No.": "1",
-        "Ticker": "NVDA",
+        "Ticker": "GOVX",
         "Company": "Regencell Bioscience Holdings Ltd",
         "Sector": "Healthcare",
         "Industry": "Drug Manufacturers - Specialty & Generic",
@@ -12,82 +12,33 @@
         "Volume": "633,477",
         "Articles": [
             {
-                "Website": "Yahoo Finance",
-                "Title": "Chip stocks will regain momentum over AI demand: Analyst",
-                "Url": "https://finance.yahoo.com/video/chip-stocks-regain-momentum-over-141048568.html",
-                "Publisher": "Yahoo Finance Video",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Magnificent Seven Stocks: Nvidia Stock Rallies; Tesla Slides",
-                "Url": "https://finance.yahoo.com/m/4205eaa9-f620-3a0b-a81a-0e82c7c9fd0b/magnificent-seven-stocks-.html",
-                "Publisher": "Investor's Business Daily",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "3 Crypto Stocks to Watch as Bitcoin Stages a Comeback",
-                "Url": "https://finance.yahoo.com/news/3-crypto-stocks-watch-bitcoin-144900723.html",
-                "Publisher": "Zacks",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Billionaire Paul Singer Says AI Stocks Like Meta Platforms (META) are in \u2018Bubble Land\u2019",
-                "Url": "https://finance.yahoo.com/news/billionaire-paul-singer-says-ai-135822738.html",
-                "Publisher": "Insider Monkey",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Forget Nvidia: 2 Artificial Intelligence (AI) Stocks to Buy After the Market Sell-Off",
-                "Url": "https://finance.yahoo.com/news/forget-nvidia-2-artificial-intelligence-135300739.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Microsoft, Nvidia Shunned. Meet The New Big 'Daddy' On Wall Street.",
-                "Url": "https://finance.yahoo.com/m/824eda6f-8e2a-3319-afa2-ac4c3a7e7a80/microsoft-nvidia-shunned-.html",
-                "Publisher": "Investor's Business Daily",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "AI Stocks: Tech Giants, Cloud Titans Face 'Show Me' Moment",
-                "Url": "https://finance.yahoo.com/m/684c930d-1475-3adc-b013-ae604c056ebc/ai-stocks-tech-giants-cloud.html",
-                "Publisher": "Investor's Business Daily",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Is Qualcomm a Millionaire-Maker Stock?",
-                "Url": "https://finance.yahoo.com/news/qualcomm-millionaire-maker-stock-123000832.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Dow Jones Futures Rise, 10 Stocks Near Buy Points With Rally Setting Up; Musk-Trump On Tap",
-                "Url": "https://finance.yahoo.com/m/81719280-8df1-3521-bb9c-c3270a6c7c44/dow-jones-futures-rise-10.html",
-                "Publisher": "Investor's Business Daily",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "Want to Get Richer? 2 Best Stocks to Buy Now and Hold Forever",
-                "Url": "https://finance.yahoo.com/news/want-richer-2-best-stocks-110000545.html",
-                "Publisher": "Motley Fool",
-                "Time": ""
-            },
-            {
-                "Website": "Yahoo Finance",
-                "Title": "NVIDIA Corporation (NVDA): Why Are Hedge Funds Bullish on This Self Driving Car Stock Now?",
-                "Url": "https://finance.yahoo.com/news/nvidia-corporation-nvda-why-hedge-105442988.html",
-                "Publisher": "Insider Monkey",
-                "Time": ""
-            }
-        ]
-    }
-]
+                "TradingView": [
+                    {
+                        "Website": "Trading View",
+                        "Title": "GeoVax More Than Doubles Friday Following This Week's WHO Mpox Declaration",
+                        "Url": "https://www.tradingview.com/news/DJN_DN20240816006162:0/",
+                        "Publisher": "Dow Jones Newswires",
+                        "Tickers Mentioned": [
+                            "GEOVAX"
+                        ],
+                        "Time": "2001.57 minutes ago",
+                        "Title Sentiment": {
+                            "decision": "Relevant",
+                            "reasoning": "The article discusses a significant increase in the stock price of GeoVax, which is directly related to the company's involvement in vaccine development, particularly for Mpox. The mention of the WHO's declaration likely impacts GeoVax's business prospects and investor sentiment, making the article highly relevant to the GOVX stock."
+                        }
+                    },
+                    {
+                        "Website": "Trading View",
+                        "Title": "GeoVax More Than Doubles Friday Following This Week's WHO Mpox Declaration",
+                        "Url": "https://www.tradingview.com/news/DJN_DN20240816006162:0/",
+                        "Publisher": "Dow Jones Newswires",
+                        "Tickers Mentioned": [
+                            "GEOVAX"
+                        ],
+                        "Time": "2001.57 minutes ago",
+                        "Title Sentiment": {
+                            "decision": "Relevant",
+                            "reasoning": "The article discusses a significant increase in the stock price of GeoVax, which is directly related to the company's involvement in vaccine development, particularly for Mpox. The mention of the WHO's declaration likely impacts GeoVax's business prospects and investor sentiment, making the article highly relevant to the GOVX stock."
+                        },
+                        "Article Text": "By Josh Beckerman GeoVax Labs shares more than doubled Friday, adding to gains that took place after the World Health Organization's Wednesday declaration of mpox as a public health emergency of international concern. The stock was recently at $6.82, compared with Thursday's close of $3.35. Volume was more than 100 million shares, compared with a 65-day average of 3.5 million. Shares rose 30% Wednesday and 3% Thursday. GeoVax said Thursday that it will present at the Emerging Growth Conference next week. It plans to discuss recent mpox developments and milestones related to a Covid-19 vaccine award from the Biomedical Advanced Research and Development Authority. The company's lead clinical program is the Covid vaccine GEO-CM04S1. In December, GeoVax said it amended a Covid-related license agreement with the National Institute of Allergy and Infectious Diseases, expanding its commercial license to include mpox and smallpox as additional indications. On Thursday, Sweden became the first country outside Africa to confirm mpox clade Ib in a person with travel history to central Africa, according to the WHO. Meanwhile, Emergent Biosolutions shares were recently up 24% to $10.73. Emergent, maker of smallpox vaccine ACAM2000, is seeking Food and Drug Administration approval to expand the indication to include immunization against mpox virus. Write to Josh Beckerman at josh.beckerman@wsj.com",
+                        "GPT Text Sentiment": 

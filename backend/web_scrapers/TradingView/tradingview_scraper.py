@@ -68,24 +68,19 @@ class TradingViewArticleScraper:
         tickers = [img.get_attribute('src').split('/')[-1].split('.')[0].upper() for img in ticker_images]
         return tickers
 
-    def extract_row_data(self, row, time):
+    def extract_row_data(self, row, time_diff_minutes, ticker):
         try:
             website = "Trading View"
             
-            # Extract the article title
             article_title = row.find_element(By.XPATH, ".//div[contains(@class, 'apply-overflow-tooltip') and contains(@class, 'title-HY0D0owe')]").text
             
-            # Extract the publisher
             publisher = row.find_element(By.XPATH, ".//span[contains(@class, 'provider-HY0D0owe')]").text
             
-            # Extract the URL from the <a> tag
             url = row.get_attribute("href") #might need to modify this to add the base URL
             
-            # Extract the tickers mentioned
             tickers_mentioned = self.extract_ticker_from_logo(row)
             
-            # Extract time
-            time_posted = time
+            time_posted_str = f"{time_diff_minutes:.2f} minutes ago"  # Use time difference as the time
             
             row_data = {
                 "Website": website,
@@ -93,13 +88,16 @@ class TradingViewArticleScraper:
                 "Url": url,
                 "Publisher": publisher,
                 "Tickers Mentioned": tickers_mentioned,
-                "Time": time_posted
+                "Time": time_posted_str
             }
 
-            title_sentiment = self.sentiment_analyzer.gpt_title_relevance(row_data)
-            row_data["Title Sentiment"] = title_sentiment
+            title_sentiment = self.sentiment_analyzer.gpt_title_relevance(article_title, ticker)
+            row_data["Title Sentiment"] = {
+                "decision": title_sentiment.decision,
+                "reasoning": title_sentiment.reasoning
+            }
 
-            self.append_to_json(row_data)
+            self.append_to_json(row_data, ticker)
 
             print(row_data)
             return row_data
@@ -111,14 +109,14 @@ class TradingViewArticleScraper:
             print(f"Error extracting row data: {e}")
             return None
 
-    def append_to_json(self, row_data):
+    def append_to_json(self, row_data, ticker):
         # Load the existing data from the JSON file
         with open("/Users/gianniioannou/Documents/GitHub Files/TaurusTrading/backend/temp.json", "r") as f:
             data = json.load(f)
 
         # Find the correct ticker and add the article data
         for ticker_data in data:
-            if ticker_data["Ticker"] == row_data["Tickers Mentioned"][0]:  # Assuming the first ticker in the list
+            if ticker_data["Ticker"].lower() == ticker.lower():  # Match with the passed-in ticker
                 if "Articles" not in ticker_data:
                     ticker_data["Articles"] = []
                 if "TradingView" not in ticker_data["Articles"]:
@@ -160,24 +158,27 @@ class TradingViewArticleScraper:
                         time_diff_minutes = time_diff.total_seconds() / 60
                         print(f"Time difference: {time_diff_minutes} minutes ago")
 
-                        if time_diff_minutes < 24 * 60:
-                            data = self.extract_row_data(row, time_posted)
+                        if time_diff_minutes < 48 * 60:  # temporarily changed to 48 hours for testing
+                            data = self.extract_row_data(row, time_diff_minutes, ticker)
 
-                            if "relevant" in data["Title Sentiment"].lower():
+                            if data and "relevant" in data["Title Sentiment"]["decision"].lower():
                                 article_text = self.fetch_text(data["Url"])
-                                gpt_sentiment = self.sentiment_analyzer.gpt_article_sentiment(article_text)
+                                gpt_sentiment = self.sentiment_analyzer.gpt_article_sentiment(article_text, ticker)
                                 finbert_sentiment = self.sentiment_analyzer.finbert_article_sentiment(article_text)
-                                
+
                                 # Append the additional sentiment analysis to the JSON
                                 data["Article Text"] = article_text
                                 data["GPT Text Sentiment"] = gpt_sentiment
                                 data["FinBERT Text Sentiment"] = finbert_sentiment
-                                self.append_to_json(data)
+                                self.append_to_json(data, ticker)
+                            else:
+                                print(f"No relevant title sentiment found for ticker {ticker}")
 
                         else:
-                            break
+                            print(f"Article too old: {time_diff_minutes} minutes ago")
+
                     except Exception as e:
-                        print(f"Error: {e}")
+                        print(f"Error processing row for ticker {ticker}: {e}")
             except Exception as e:
                 print(f"Could not find container for {ticker}: {e}")
     
@@ -188,21 +189,16 @@ class TradingViewArticleScraper:
             self.driver.switch_to.window(self.driver.window_handles[-1])
             self.driver.get(url)
             
-            # Wait for the article content to be loaded
             WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "body-KX2tCBZq"))
             )
             
-            # Find all paragraph elements within the article content
             paragraphs = self.driver.find_elements(By.XPATH, "//div[contains(@class, 'body-KX2tCBZq body-pIO_GYwT content-pIO_GYwT')]//p")
             
-            # Combine all the paragraph texts into one blob
             article_text = " ".join([p.text for p in paragraphs])
             
-            # Close the new tab
             self.driver.close()
             
-            # Switch back to the original tab
             self.driver.switch_to.window(self.driver.window_handles[0])
             
             return article_text
