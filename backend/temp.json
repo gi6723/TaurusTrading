@@ -1,7 +1,7 @@
 [
     {
         "No.": "1",
-        "Ticker": "GOVX",
+        "Ticker": "ISPO",
         "Company": "NVIDIA Corporation",
         "Sector": "Technology",
         "Industry": "Semiconductors",
@@ -9,100 +9,7 @@
         "Market Cap": "500.25B",
         "Price": "480.56",
         "Change": "2.45%",
-        "Volume": "25,000,000",
-        "Articles": [
-            {
-                "Website": "Trading View",
-                "Title": "GeoVax More Than Doubles Friday Following This Week's WHO Mpox Declaration",
-                "Url": "https://www.tradingview.com/news/DJN_DN20240816006162:0/",
-                "Publisher": "Dow Jones Newswires",
-                "Tickers Mentioned": [
-                    "GEOVAX"
-                ],
-                "Time": "2142.86 minutes ago",
-                "Title Sentiment": {
-                    "decision": "Relevant",
-                    "reasoning": "The article is relevant to the stock ticker 'GOVX', which represents GeoVax. The title mentions a significant price movement ('more than doubles') in response to a WHO declaration about Mpox, which suggests that GeoVax's business or products are directly impacted by this news. Investors in GeoVax would likely be interested in understanding the reasons behind such a significant stock movement."
-                },
-                "Article Sentiment": {
-                    "decision": "Positive",
-                    "reasoning": "The article highlights significant positive developments for GeoVax Labs, whose shares more than doubled following the WHO's declaration of mpox as a public health emergency. The substantial increase in stock price and trading volume indicates strong investor interest and confidence. Additionally, GeoVax's plans to present at an upcoming conference and recent amendments to expand their license for mpox and smallpox suggest potential for future growth and success. These factors contribute to a positive sentiment for the stock."
-                },
-                "FinBERT Sentiment": {
-                    "Sentiment": "Positive"
-                },
-                "Article Text": "By Josh Beckerman GeoVax Labs shares more than doubled Friday, adding to gains that took place after the World Health Organization's Wednesday declaration of mpox as a public health emergency of international concern. The stock was recently at $6.82, compared with Thursday's close of $3.35. Volume was more than 100 million shares, compared with a 65-day average of 3.5 million. Shares rose 30% Wednesday and 3% Thursday. GeoVax said Thursday that it will present at the Emerging Growth Conference next week. It plans to discuss recent mpox developments and milestones related to a Covid-19 vaccine award from the Biomedical Advanced Research and Development Authority. The company's lead clinical program is the Covid vaccine GEO-CM04S1. In December, GeoVax said it amended a Covid-related license agreement with the National Institute of Allergy and Infectious Diseases, expanding its commercial license to include mpox and smallpox as additional indications. On Thursday, Sweden became the first country outside Africa to confirm mpox clade Ib in a person with travel history to central Africa, according to the WHO. Meanwhile, Emergent Biosolutions shares were recently up 24% to $10.73. Emergent, maker of smallpox vaccine ACAM2000, is seeking Food and Drug Administration approval to expand the indication to include immunization against mpox virus. Write to Josh Beckerman at josh.beckerman@wsj.com"
-            },
-            {
-                "Website": "Trading View",
-                "Title": "Why Are GeoVax Shares Trading Higher Today?",
-                "Url": "https://www.tradingview.com/news/benzinga:7254a8d02094b:0-why-are-geovax-shares-trading-higher-today/",
-                "Publisher": "Benzinga",
-                "Tickers Mentioned": [
-                    "GEOVAX"
-                ],
-                "Time": "2273.94 minutes ago",
-                "Title Sentiment": {
-                    "decision": "Relevant",
-                    "reasoning": "The article title directly mentions 'GeoVax', which is associated with the stock ticker 'GOVX'. It suggests that the article discusses reasons behind the movement in GeoVax's stock price, which is highly relevant for investors and analysts interested in GOVX. Understanding why shares are trading higher could impact investment decisions and market perception of the stock."
-                },
-                "Article Sentiment": {
-                    "decision": "Positive",
-                    "reasoning": "The article discusses GeoVax Labs, Inc. (GOVX) in the context of a global health emergency declared by the World Health Organization concerning the mpox virus. The attention on GeoVax is due to its specialization in vaccine development, which positions it as a potentially key player in addressing this health crisis. The article highlights an increase in the company's stock price by 65.4%, suggesting positive market sentiment and investor confidence in GeoVax's potential role in developing a vaccine for the mpox virus. This significant stock price increase indicates a positive sentiment towards GOVX."
-                },
-                "FinBERT Sentiment": {
-                    "Sentiment": "Positive"
-                },
-                "Article Text": "GeoVax Labs, Inc.\nGOVX\n, a company specializing in vaccine development, is seeing investor attention following the World Health Organization\u2019s recent declaration of mpox as a global health emergency. The European Centre for Disease Prevention and Control (ECDC) has also issued a new risk assessment, warning that the European Union/European Economic Area is likely to see more imported cases of mpox caused by the clade I virus currently circulating in Africa. Although the risk of sustained transmission within Europe is considered low, the possibility of more cases being brought into Europe has prompted the ECDC to recommend heightened preparedness and rapid response measures. Recommendations: The ECDC advises EU/EEA member states to issue travel advice for individuals visiting or returning from regions affected by the outbreak. The ECDC also stresses the need for robust surveillance, laboratory testing and epidemiological investigations to swiftly detect and respond to any mpox cases that might arise. The situation in Africa, particularly in the Democratic Republic of the Congo, has become increasingly concerning, with a significant rise in mpox cases and the emergence of a new clade I variant. The outbreak in Africa is distinct from the global MPXV clade IIb outbreak of 2022, which continues to circulate at low levels worldwide. The new variant has already spread to several neighboring countries, further raising alarms about its potential impact on global health. GOVX Price Action: GeoVax shares were up by 65.4% at $5.56 according to Benzinga Pro. www.benzinga.com/pro See Also: Image via Unsplash. \u00a9 2024 Benzinga.com. Benzinga does not provide investment advice. All rights reserved."
-            },
-            {
-                "Website": "Trading View",
-                "Title": "Mpox vaccine, drug developers rally as virus spreads outside Africa",
-                "Url": "https://www.tradingview.com/news/reuters.com,2024:newsml_L8N3K30P4:0-mpox-vaccine-drug-developers-rally-as-virus-spreads-outside-africa/",
-                "Publisher": "Reuters",
-                "Tickers Mentioned": [
-                    "BAVARIAN-NORDIC-A-S",
-                    "EMERGENT-BIOSOLUTIONS",
-                    "SIGA-TECHNOLOGIES",
-                    "GEOVAX"
-                ],
-                "Time": "2579.00 minutes ago",
-                "Title Sentiment": {
-                    "decision": "Relevant",
-                    "reasoning": "The article discusses the spread of the Mpox virus and mentions vaccine and drug developers, which is directly relevant to GOVX, a company involved in developing vaccines for infectious diseases including Mpox. Such news could impact GOVX's stock price due to potential demand for their products."
-                },
-                "Article Sentiment": {
-                    "decision": "Positive",
-                    "reasoning": "The article highlights a significant surge in Geovax Labs' stock price, with a 60% increase reported in early trading. This surge is attributed to the company's involvement in developing a vaccine against mpox and smallpox, amidst rising concerns about the virus. The overall sentiment towards Geovax Labs is positive due to the market's favorable reaction to their efforts in addressing the mpox outbreak."
-                },
-                "FinBERT Sentiment": {
-                    "Sentiment": "Positive"
-                },
-                "Article Text": "Shares in companies making and developing products against mpox surged on Friday as the European Union's public health body raised its alert level for the virus spreading in Africa and beyond. A new variant has spread rapidly in Africa, prompting the World Health Organization to declare mpox a global public health emergency on Wednesday. Europe's disease prevention agency said on Friday more imported cases will appear in the region, a day after Sweden reported its first case of mpox linked to the new strain. Shares of Danish biotech firm Bavarian Nordic\nBAVA\n, which makes an mpox vaccine, jumped 20% on Friday. They have climbed 50% this week as concerns over the virus rise. Shares in Emergent BioSolutions\nEBS\ngained 15% in U.S. trading. Its vaccine, approved for smallpox, has also been used as an mpox shot, but the U.S. Food and Drug Administration is yet to approve its application for use against the virus. Jefferies analysts said in a note on Thursday they expect significant orders for Bavarian Nordic's mpox vaccine due to the outbreak. Up to roughly 3 million doses of the vaccine could potentially be made available in 2024 and 10 million in 2025, the Jefferies analysts said. Winning approval for administering to adolescents and children would be key, they said. Shares in other companies involved in the mpox response have also swung wildly this week. SIGA Technologies\nSIGA\njumped 7% on Friday, after falling nearly 20% a day earlier after its mpox drug failed to meet the main goal in a study. U.S.-listed Geovax Labs,\nGOVX\n, which had a market capitalization of less than $20 million as of Thursday, surged 60% to $5.35 in early trading. The company is developing a vaccine against mpox and smallpox. Bavarian Nordic's shares closed up 17.8% at 282.5 Danish crowns."
-            },
-            {
-                "Website": "Trading View",
-                "Title": "Emergent and GeoVax rise as mpox cases are reported outside Africa",
-                "Url": "https://www.tradingview.com/news/reuters.com,2024:newsml_L4N3K30WK:0-emergent-and-geovax-rise-as-mpox-cases-are-reported-outside-africa/",
-                "Publisher": "Reuters",
-                "Tickers Mentioned": [
-                    "EMERGENT-BIOSOLUTIONS",
-                    "GEOVAX"
-                ],
-                "Time": "2590.07 minutes ago",
-                "Title Sentiment": {
-                    "decision": "Relevant",
-                    "reasoning": "The article discusses the rise in mpox cases outside Africa and mentions GeoVax, which is directly related to the stock ticker 'GOVX'. GeoVax is involved in developing vaccines, and news about disease outbreaks can significantly impact the stock price due to potential increased demand for vaccines. Therefore, the article is relevant to GOVX."
-                },
-                "Article Sentiment": {
-                    "decision": "Positive",
-                    "reasoning": "The article highlights a rise in the shares of GeoVax Labs (GOVX) following reports of mpox cases outside Africa, suggesting increased market interest and potential demand for their vaccine. It also mentions that the company's GEO-MVA vaccine, initially developed for smallpox and later for mpox, is expected to be its first product to market, indicating positive future prospects. This information contributes to a positive sentiment regarding the stock."
-                },
-                "FinBERT Sentiment": {
-                    "Sentiment": "Positive"
-                },
-                "Article Text": "** Shares of mpox vaccine developers Emergent BioSolutions\nEBS\nand GeoVax Labs\nGOVX\nrise premarket after cases of mpox were found outside Africa ** A case of mpox is reported in Pakistan, while another was reported in Sweden on Thursday ** WHO sounded its highest level of alert on Wednesday over the outbreak in Africa after cases in the Democratic Republic of Congo spread to nearby countries ** Premarket, shares of EBS rise 12.6% to $9.75, while GOVX's shares up 9.9% at $3.53 ** Brokerage Benchmark says EBS manufactures and supplies ACAM2000 for prevention of smallpox, and earlier this year co submitted US FDA application for its use in mpox, expecting approval this quarter ** Brokerage Roth MKM sees GOVX's GEO-MVA vaccine, initially developed for smallpox and later for mpox, to be its first product to market ** Up to last close, EBS up over two-fold and GOVX down 38.1% YTD"
-            }
-        ]
+        "Volume": "25,000,000"
     }
 ]
+        

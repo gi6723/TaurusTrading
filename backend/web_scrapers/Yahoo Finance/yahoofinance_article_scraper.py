@@ -9,6 +9,7 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+from sentiment_analysis.sent_analysis import SentimentAnalysis
 
 class YahooFinanceArticleScraper:
     def __init__(self):

@@ -15,8 +15,8 @@ from fake_useragent import UserAgent
 import requests
 import whisper
 import certifi
-from sent_analysis import TradingViewSentimentAnalysis
-from data_handler import DataHandler
+from ..sentiment_analysis.sent_analysis import SentimentAnalysis
+from ..data_handler import DataHandler #added backend.
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
